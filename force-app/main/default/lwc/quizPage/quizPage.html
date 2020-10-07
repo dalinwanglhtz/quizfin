@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <div>{quizData.question}</div>
+        <lightning-radio-group name="selections"
+                                options={quizData.answers}
+                                value={value}
+                                type="radio"></lightning-radio-group>
+    </lightning-card>
+</template>
