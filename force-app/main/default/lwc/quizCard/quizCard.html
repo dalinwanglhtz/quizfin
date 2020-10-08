@@ -2,11 +2,11 @@
     <lightning-card title={cardData.question}>
         <lightning-radio-group name="selections"
                                 options={cardData.answers}
-                                value={value}
+                                value={cardData.selected}
                                 type="radio"
                                 onchange={handleSelect}></lightning-radio-group>
     </lightning-card>
     <div if:true={value}>
-        Selected value is: {value}
+        Selected value is: {value} and Id is {cardId}
     </div>
 </template>

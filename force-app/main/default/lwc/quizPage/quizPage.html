@@ -1,13 +1,23 @@
 <template>
     <div>
-        <lightning-layout horizontal-align="center">
+        <lightning-layout horizontal-align="left">
             <template for:each={quizData} for:item="card">
                 <lightning-layout-item 
                     key={card.question}
                     padding="around-small">
-                    <c-quiz-card card-data={card}></c-quiz-card>
+                    <c-quiz-card card-data={card} card-id={card.index} onselectedoption={handleSelectedOption}></c-quiz-card>
                 </lightning-layout-item>
             </template>
+        </lightning-layout>
+    </div>
+    <div>
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
+            </lightning-layout-item>
         </lightning-layout>
     </div>
 </template>
