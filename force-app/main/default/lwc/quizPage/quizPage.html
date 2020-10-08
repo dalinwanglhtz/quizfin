@@ -1,9 +1,13 @@
 <template>
-    <lightning-card>
-        <div>{quizData.question}</div>
-        <lightning-radio-group name="selections"
-                                options={quizData.answers}
-                                value={value}
-                                type="radio"></lightning-radio-group>
-    </lightning-card>
+    <div>
+        <lightning-layout horizontal-align="center">
+            <template for:each={quizData} for:item="card">
+                <lightning-layout-item 
+                    key={card.question}
+                    padding="around-small">
+                    <c-quiz-card card-data={card}></c-quiz-card>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </div>
 </template>
