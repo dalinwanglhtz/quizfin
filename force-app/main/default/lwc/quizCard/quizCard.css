@@ -1,0 +1,17 @@
+.div-style{
+    background-color: aqua;
+    font-size: 36px;
+    color: rgb(186, 207, 89);
+}
+
+.div-style:hover{
+    color: #f00;
+}
+
+.div2-style{
+    margin: 3px;
+}
+
+.fullsize{
+    height: 85vh;
+}
