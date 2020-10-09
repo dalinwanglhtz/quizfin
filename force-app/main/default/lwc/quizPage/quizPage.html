@@ -3,8 +3,7 @@
         <lightning-layout horizontal-align="left">
             <template for:each={quizData} for:item="card">
                 <lightning-layout-item 
-                    key={card.question}
-                    padding="around-small">
+                    key={card.question}>
                     <c-quiz-card card-data={card} card-id={card.index} onselectedoption={handleSelectedOption}></c-quiz-card>
                 </lightning-layout-item>
             </template>

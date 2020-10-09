@@ -1,17 +1,19 @@
 .div-style{
-    background-color: aqua;
-    font-size: 36px;
-    color: rgb(186, 207, 89);
-}
-
-.div-style:hover{
-    color: #f00;
-}
-
-.div2-style{
+    background-color: rgba(44, 192, 44, 0.521);
+    font-size: 26px;
+    color: rgb(61, 50, 50);
     margin: 3px;
+    padding: 0.5rem;
 }
 
-.fullsize{
-    height: 85vh;
+.fontadjust{
+    font-size: large;
+    font-weight: bold;
 }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Verdana', sans-serif;
+  }

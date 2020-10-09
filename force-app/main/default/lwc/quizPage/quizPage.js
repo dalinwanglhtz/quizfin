@@ -27,7 +27,7 @@ export default class QuizPage extends LightningElement {
     updateIndex(data) {
         let newArray = data;
         for(let i=0; i<newArray.length; i++) {
-            newArray[i].index = i;
+            newArray[i].index = i+1;
         }
         return newArray;
     }

@@ -1,18 +1,19 @@
 <template>
-    <lightning-card class="slds-var-m-around_medium">
-        <h3 slot="title">
-            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+    <lightning-card class="slds-var-m-around_medium" icon-name="action:script">
+        <h1 slot="title">
             {cardData.question}
-        </h3>
-        <div class="slds-p-around_medium">
+        </h1>
+        <div class="slds-p-around_medium fontadjust">         
             <lightning-radio-group name="selections"
                                     options={cardData.answers}
                                     value={cardData.selected}
                                     type="radio"
                                     onchange={handleSelect}></lightning-radio-group>
         </div>
+        <div slot="footer">
+            <div if:true={value} class="div-style">
+                Selected value is: {value} and Id is {cardId}
+            </div>
+        </div>
     </lightning-card>
-    <div if:true={value} class="div-style">
-        Selected value is: {value} and Id is {cardId}
-    </div>
 </template>
