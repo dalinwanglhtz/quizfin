@@ -9,6 +9,7 @@ export default class QuizPage extends LightningElement {
     quizData = this.allQuizes.slice(this.startIndex, this.endIndex);
     results = 0;
     totalQues = this.allQuizes.length;
+    showResult = false;
 
     nextHandler() {
         if(Data.quizData.length > this.endIndex) {
@@ -33,6 +34,11 @@ export default class QuizPage extends LightningElement {
     handleSelectedOption(event) {
         this.allQuizes[event.detail.index].selected = event.detail.value;
         this.calcResults();
+    }
+
+
+    handleFinish() {
+        this.showResult = true;
     }
 
     calcResults() {

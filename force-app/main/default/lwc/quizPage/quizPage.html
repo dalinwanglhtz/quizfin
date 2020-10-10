@@ -10,21 +10,20 @@
                 </template>
             </lightning-layout>
         </div>
-        <div class="slds-col slds-size_1-of-3">
+        <template if:true={showResult}>
             <lightning-layout>
                 <c-quiz-results-page 
                     total-questions={totalQues} correct={results}></c-quiz-results-page>
             </lightning-layout>
-        </div>
+        </template>
     </div>
     <div>
-        <lightning-layout>
-            <lightning-layout-item>
-                <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
-            </lightning-layout-item>
-            <lightning-layout-item>
-                <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
-            </lightning-layout-item>
-        </lightning-layout>
+        <div class="slds-clearfix">
+            <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+            <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
+            <div class="slds-float_right">
+                <lightning-button label="Finish" onclick={handleFinish}></lightning-button>
+            </div>
+        </div>
     </div>
 </template>
