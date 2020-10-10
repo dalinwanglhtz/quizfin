@@ -31,9 +31,15 @@ export default class QuizPage extends LightningElement {
     }
 
     handleSelectedOption(event) {
-        if(event.detail.outcome) {
-            this.results += 1;
-        }
         this.allQuizes[event.detail.index].selected = event.detail.value;
+        this.calcResults();
+    }
+
+    calcResults() {
+        let result = 0;
+        for(let item of this.allQuizes) {
+            result = item.selected == item.correctAnswer ? ++result : result;
+        }
+        this.results = result;
     }
 }
