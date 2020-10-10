@@ -10,6 +10,7 @@ export default class QuizPage extends LightningElement {
     results = 0;
     totalQues = this.allQuizes.length;
     showResult = false;
+    finishButtonLabel = 'Finish';
 
     nextHandler() {
         if(Data.quizData.length > this.endIndex) {
@@ -38,7 +39,12 @@ export default class QuizPage extends LightningElement {
 
 
     handleFinish() {
-        this.showResult = true;
+        if(this.finishButtonLabel === 'Finish') {
+            this.showResult = true;
+            this.finishButtonLabel = 'Restart';
+        } else {
+            this.reloadPage();
+        }
     }
 
     calcResults() {
@@ -47,5 +53,9 @@ export default class QuizPage extends LightningElement {
             result = item.selected == item.correctAnswer ? ++result : result;
         }
         this.results = result;
+    }
+
+    reloadPage() {
+        location.reload();
     }
 }
