@@ -10,24 +10,20 @@ export default class QuizPage extends LightningElement {
 
     nextHandler() {
         if(Data.quizData.length > this.endIndex) {
-            this.startIndex += 1;
-            this.endIndex += 1;
-            this.quizData = this.allQuizes.slice(this.startIndex, this.endIndex);
+            this.quizData = this.allQuizes.slice(++this.startIndex, ++this.endIndex);
         }
     }
 
     previousHandler() {
         if(0 < this.startIndex) {
-            this.startIndex -= 1;
-            this.endIndex -= 1;
-            this.quizData = this.allQuizes.slice(this.startIndex, this.endIndex);
+            this.quizData = this.allQuizes.slice(--this.startIndex, --this.endIndex);
         }
     }
 
     updateIndex(data) {
-        let newArray = data;
+        let newArray = data.slice();
         for(let i=0; i<newArray.length; i++) {
-            newArray[i].index = i+1;
+            newArray[i].index = i;
         }
         return newArray;
     }
