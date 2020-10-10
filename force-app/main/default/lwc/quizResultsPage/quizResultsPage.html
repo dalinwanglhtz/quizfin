@@ -1,3 +1,18 @@
 <template>
-    
+    <lightning-card>
+        <h1 slot="title">
+            Result:
+        </h1>
+        <div>
+            <div>
+                Total Questions: {totalQuestions}
+            </div>
+            <div>
+                Questions Answered Correctly: {correct}
+            </div>
+            <div>
+                Questions Answered Incorrectly: {incorrect}
+            </div>
+        </div>
+    </lightning-card>
 </template>

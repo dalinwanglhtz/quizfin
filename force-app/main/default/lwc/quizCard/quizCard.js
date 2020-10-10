@@ -7,7 +7,12 @@ export default class QuizCard extends LightningElement {
 
     handleSelect(event) {
         this.value = event.detail.value;
-        const optionSelectEvent = new CustomEvent('selectedoption', {detail: {value: this.value, index: this.cardId}});
+        const optionSelectEvent = new CustomEvent('selectedoption', {detail: {
+            value: this.value, 
+            index: this.cardId,
+            outcome: this.value == this.cardData.correctAnswer,
+            correctAnswer: `${this.cardData.correctAnswer}`
+        }});
         this.dispatchEvent(optionSelectEvent);
     }
 

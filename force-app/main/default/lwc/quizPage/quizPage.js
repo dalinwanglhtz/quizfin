@@ -7,6 +7,8 @@ export default class QuizPage extends LightningElement {
     endIndex = 1;
     allQuizes = this.updateIndex(Data.quizData.slice());
     quizData = this.allQuizes.slice(this.startIndex, this.endIndex);
+    results = 0;
+    totalQues = this.allQuizes.length;
 
     nextHandler() {
         if(Data.quizData.length > this.endIndex) {
@@ -29,6 +31,9 @@ export default class QuizPage extends LightningElement {
     }
 
     handleSelectedOption(event) {
+        if(event.detail.outcome) {
+            this.results += 1;
+        }
         this.allQuizes[event.detail.index].selected = event.detail.value;
     }
 }

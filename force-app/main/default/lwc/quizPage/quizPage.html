@@ -1,13 +1,21 @@
 <template>
-    <div>
-        <lightning-layout horizontal-align="left">
-            <template for:each={quizData} for:item="card">
-                <lightning-layout-item 
-                    key={card.question}>
-                    <c-quiz-card card-data={card} card-id={card.index} onselectedoption={handleSelectedOption}></c-quiz-card>
-                </lightning-layout-item>
-            </template>
-        </lightning-layout>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_2-of-3">
+            <lightning-layout horizontal-align="left">
+                <template for:each={quizData} for:item="card">
+                    <lightning-layout-item 
+                        key={card.question}>
+                        <c-quiz-card card-data={card} card-id={card.index} onselectedoption={handleSelectedOption}></c-quiz-card>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning-layout>
+                <c-quiz-results-page 
+                    total-questions={totalQues} correct={results}></c-quiz-results-page>
+            </lightning-layout>
+        </div>
     </div>
     <div>
         <lightning-layout>
