@@ -48,11 +48,7 @@ export default class QuizPage extends LightningElement {
     }
 
     calcResults() {
-        let result = 0;
-        for(let item of this.allQuizes) {
-            result = item.selected == item.correctAnswer ? ++result : result;
-        }
-        this.results = result;
+        this.results = this.allQuizes.reduce((acc, curr) => curr.selected == curr.correctAnswer ? ++acc : acc, 0);
     }
 
     reloadPage() {
