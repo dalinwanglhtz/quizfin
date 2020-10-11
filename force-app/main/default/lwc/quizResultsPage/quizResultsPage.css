@@ -1,0 +1,16 @@
+*{
+    padding: 0.5rem;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Verdana', sans-serif;
+}
+
+.fontheading{
+    font-size: large;
+    font-weight: bolder;
+}
+
+.fontadjust{
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

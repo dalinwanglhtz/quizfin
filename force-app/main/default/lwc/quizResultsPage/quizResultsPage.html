@@ -1,18 +1,25 @@
 <template>
-    <lightning-card class="slds-var-m-around_medium">
-        <h1 slot="title">
-            Result:
+    <lightning-card class="slds-var-m-around_medium" icon-name={outcomeIcon}>
+        <h1 slot="title" class="fontheading">
+            <lightning-formatted-text value="Result:"></lightning-formatted-text>
         </h1>
-        <div>
-            <div>
-                Total Questions: {totalQuestions}
-            </div>
-            <div>
-                Questions Answered Correctly: {correct}
-            </div>
-            <div>
-                Questions Answered Incorrectly: {incorrect}
-            </div>
+        <div class="slds-p-around_medium fontadjust">
+            <p>
+                Total Questions:
+                <lightning-formatted-number value={totalQuestions}></lightning-formatted-number>
+            </p>
+            <p>
+                Questions Answered Correctly:
+                <lightning-formatted-number value={correct}></lightning-formatted-number>
+            </p>
+            <p>
+                Questions Answered Incorrectly:
+                <lightning-formatted-number value={incorrect}></lightning-formatted-number>
+            </p>
+            <p>
+                Your Score:
+                <lightning-formatted-number value={score} format-style="percent"></lightning-formatted-number>
+            </p>
         </div>
     </lightning-card>
 </template>
