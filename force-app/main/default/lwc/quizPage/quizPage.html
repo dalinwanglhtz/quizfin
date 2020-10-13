@@ -18,12 +18,15 @@
         </template>
     </div>
     <div>
-        <div class="slds-clearfix">
-            <template if:false={showResult}>
+        <div class="slds-grid">
+            <div if:false={showResult} class="slds-col slds-medium-size_3-of-12">
                 <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
                 <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>    
-            </template>
-            <div class="slds-float_right">
+            </div>
+            <div class="slds-col slds-medium-size_6-of-12">
+                <c-quiz-page-progress-bar total={totalQues} completed={endIndex}></c-quiz-page-progress-bar>
+            </div>
+            <div class="slds-col slds-medium-size_3-of-12">
                 <lightning-button label={finishButtonLabel} onclick={handleFinish}></lightning-button>
             </div>
         </div>

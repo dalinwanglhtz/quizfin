@@ -1,0 +1,20 @@
+.progress{
+    width: 95%;
+    border-radius: 2px;
+    display: flex;
+    overflow: hidden;
+    line-height: 0;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    height: 1.9rem;
+}
+.progress-bar{
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    transition: width .7s ease;
+    background-color:#d66e19;
+    width: 95%;
+}
