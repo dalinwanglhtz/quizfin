@@ -5,10 +5,10 @@ export default class QuizPageProgressBar extends LightningElement {
     @api completed;
 
     get progress() {
-        return (this.completed * 100) / this.total;
+        return `${this.completed}/${this.total}`;
     }
 
     get getStyle() {
-        return `width: ${this.progress}%`;
+        return `width: ${Math.floor((this.completed * 100) / this.total)}%`;
     }
 }

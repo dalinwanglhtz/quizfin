@@ -12,6 +12,8 @@
     height: 22px;
     background-color: #1c69dd;
     border-radius: 3px;
+    color: #f7e6e6;
+    text-align: center;
     
     transition: width 500ms ease-in-out;
 }
