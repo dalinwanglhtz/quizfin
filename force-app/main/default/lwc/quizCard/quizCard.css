@@ -11,6 +11,10 @@
     font-weight: bold;
 }
 
+.cardStyle {
+    width: 800px;
+}
+
 *{
     padding: 0.5rem;
     margin: 0;
