@@ -4,9 +4,11 @@
     </div>
     <div class="slds-p-around_medium lgc-bg">
         <lightning-input type="text" name="textInput" label="Enter Your Name"></lightning-input>
-        <lightning-button variant="brand" label="Enter" onclick={handleEnter}></lightning-button>
     </div>
     <div>
+        <lightning-button variant="brand" label="Enter" onclick={handleEnter}></lightning-button>
+    </div>
+    <div if:true={entryAllowed}>
         <c-quiz-page></c-quiz-page>
     </div>
 </template>
