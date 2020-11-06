@@ -5,6 +5,7 @@ export default class QuizHome extends LightningElement {
     noWelcome;
     entryAllowed;
     attemptQuiz;
+    createQuiz;
 
     handleEnter(event) {
         this.userName = this.template.querySelector('lightning-input').value;
@@ -23,8 +24,10 @@ export default class QuizHome extends LightningElement {
         const buttonLabel = event.detail.label;
         if(buttonLabel == 'Attend Quiz') {
             this.attemptQuiz = true;
-            this.entryAllowed = false;
+        } else if(buttonLabel == 'Create New Quiz Set') {
+            this.createQuiz = true;
         }
+        this.entryAllowed = false;
     }
 
     connectedCallback() {

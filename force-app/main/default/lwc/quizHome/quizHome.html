@@ -8,10 +8,13 @@
             <lightning-button variant="brand" label="Enter" onclick={handleEnter}></lightning-button>
         </div>
     </div>
+    <div if:true={entryAllowed}>
+        <c-quiz-menu onbuttonclicked={handleButtonClick}></c-quiz-menu>
+    </div>
     <div if:true={attemptQuiz}>
         <c-quiz-page></c-quiz-page>
     </div>
-    <div if:true={entryAllowed}>
-        <c-quiz-menu onbuttonclicked={handleButtonClick}></c-quiz-menu>
+    <div if:true={createQuiz}>
+        <c-quiz-create></c-quiz-create>
     </div>
 </template>
