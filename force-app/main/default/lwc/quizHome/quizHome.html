@@ -1,14 +1,17 @@
 <template>
-    <div>
+    <div if:false={noWelcome}>
         <h1 class="slds-text-heading_small">Welcome to QuizFin {userName}</h1>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" name="textInput" label="Enter Your Name"></lightning-input>
+        </div>
+        <div>
+            <lightning-button variant="brand" label="Enter" onclick={handleEnter}></lightning-button>
+        </div>
     </div>
-    <div class="slds-p-around_medium lgc-bg">
-        <lightning-input type="text" name="textInput" label="Enter Your Name"></lightning-input>
-    </div>
-    <div>
-        <lightning-button variant="brand" label="Enter" onclick={handleEnter}></lightning-button>
+    <div if:true={attemptQuiz}>
+        <c-quiz-page></c-quiz-page>
     </div>
     <div if:true={entryAllowed}>
-        <c-quiz-page></c-quiz-page>
+        <c-quiz-menu onbuttonclicked={handleButtonClick}></c-quiz-menu>
     </div>
 </template>
