@@ -3,7 +3,7 @@ import * as Data from './quizPage_data';
 
 export default class QuizPage extends LightningElement {
     // this variable allQuizData only gets populated when the whole page is loaded, so use connectedCallback
-    // instead of using it during variable initialistaion
+    // instead of using it during variable initialistaion as you see right below
     @api allQuizData; 
     value = '';
     startIndex = 0;
@@ -18,9 +18,12 @@ export default class QuizPage extends LightningElement {
 
 
     getData() {
-        let newObj = Object.assign({}, this.allQuizData[0]);
-        Data.quizData.push(newObj);
-        this.allQuizes = this.updateIndex(Data.quizData.slice());
+        let tgArray = [];
+        for(let i=0; i< this.allQuizData.length; i++) {
+            let newObj = Object.assign({}, this.allQuizData[i]);
+            tgArray.push(newObj);
+        }
+        this.allQuizes = this.updateIndex(tgArray);
         this.quizData = this.allQuizes.slice(this.startIndex, this.endIndex);
         this.totalQues = this.allQuizes.length;
     }
@@ -30,7 +33,7 @@ export default class QuizPage extends LightningElement {
     }
 
     nextHandler() {
-        if(Data.quizData.length > this.endIndex) {
+        if(this.quizData.length > this.endIndex) {
             this.quizData = this.allQuizes.slice(++this.startIndex, ++this.endIndex);
         }
     }
