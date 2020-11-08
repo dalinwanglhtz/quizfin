@@ -6,6 +6,7 @@ export default class QuizHome extends LightningElement {
     entryAllowed;
     attemptQuiz;
     createQuiz;
+    quizData = [];
 
     handleEnter(event) {
         this.userName = this.template.querySelector('lightning-input').value;
@@ -28,6 +29,25 @@ export default class QuizHome extends LightningElement {
             this.createQuiz = true;
         }
         this.entryAllowed = false;
+    }
+
+    handleCreate(event) {
+
+        let newQuestion = {
+            question: event.detail.question,
+            answers: [],
+            correctAnswer: event.detail.correct
+        }
+
+        event.detail.options.forEach(elem => {
+            newQuestion.answers.push({label: elem, value: elem});
+        });
+
+        this.quizData.push(newQuestion);
+
+        this.attemptQuiz = true;
+        this.createQuiz = false;
+
     }
 
     connectedCallback() {

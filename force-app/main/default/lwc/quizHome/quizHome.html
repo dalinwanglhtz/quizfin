@@ -12,9 +12,9 @@
         <c-quiz-menu onbuttonclicked={handleButtonClick}></c-quiz-menu>
     </div>
     <div if:true={attemptQuiz}>
-        <c-quiz-page></c-quiz-page>
+        <c-quiz-page all-quiz-data={quizData}></c-quiz-page>
     </div>
     <div if:true={createQuiz}>
-        <c-quiz-create></c-quiz-create>
+        <c-quiz-create onquizcreated={handleCreate}></c-quiz-create>
     </div>
 </template>
