@@ -15,6 +15,7 @@ export default class QuizHome extends LightningElement {
             this.entryAllowed = true;
             this.noWelcome = true;
         } else {
+            this.userName = 'Welcome to QuizFin '+this.userName;
             this.entryAllowed = false;
             this.noWelcome = false;
         }
@@ -51,6 +52,6 @@ export default class QuizHome extends LightningElement {
     }
 
     connectedCallback() {
-
+        this.userName = 'Welcome to QuizFin';
     }
 }
