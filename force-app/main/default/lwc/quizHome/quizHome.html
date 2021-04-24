@@ -1,20 +1,6 @@
 <template>
-    <div if:false={noWelcome}>
-        <lightning-card class="slds-var-m-around_medium" title={userName}>
-            <div class="slds-p-around_medium lgc-bg">
-                <lightning-input type="text" name="textInput" label="Enter Your Name"></lightning-input>
-                <br/>
-                <lightning-button variant="brand" label="Enter" onclick={handleEnter}></lightning-button>
-            </div>
-        </lightning-card>
-    </div>
-    <div if:true={entryAllowed}>
-        <c-quiz-menu onbuttonclicked={handleButtonClick}></c-quiz-menu>
-    </div>
-    <div if:true={attemptQuiz}>
-        <c-quiz-page all-quiz-data={quizData}></c-quiz-page>
-    </div>
-    <div if:true={createQuiz}>
-        <c-quiz-create onquizcreated={handleCreate}></c-quiz-create>
+    <div class="slds-align_absolute-center">
+        <a href="/account/Account" class="slds-button slds-button--brand btn-lg">Manage My Quiz</a>
+        <a href="/contact/Contact" class="slds-button slds-button--brand btn-lg">Attend Quiz</a>
     </div>
 </template>
