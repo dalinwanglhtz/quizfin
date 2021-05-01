@@ -1,5 +1,5 @@
 import { LightningElement, api } from 'lwc';
-import * as Data from './quizPage_data';
+// import * as Data from './quizPage_data';
 
 export default class QuizPage extends LightningElement {
     // this variable allQuizData only gets populated when the whole page is loaded, so use connectedCallback

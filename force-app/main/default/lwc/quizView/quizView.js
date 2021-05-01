@@ -3,6 +3,7 @@ import getQuizData from '@salesforce/apex/QuizFin.getQuizData';
 
 export default class QuizView extends LightningElement {
     @track quizData = [];
+    @track error;
     attemptQuiz;
 
     handleEnter() {
@@ -14,20 +15,38 @@ export default class QuizView extends LightningElement {
     connectedCallback() {
         getQuizData()
         .then(result => {
-            for(let quizLineItem of result[0].quizli) {
-                let newQuestion = {
-                    question: quizLineItem.question,
-                    correctAnswer: quizLineItem.correctAnswer
-                }
-                newQuestion.answers = [];
-                for(let qa of quizLineItem.quizAnswer) {
-                    newQuestion.answers.push({
-                        label: qa.answerText,
-                        value: qa.Id
-                    });
-                }
-                this.quizData.push(newQuestion);
-            }
-        });
+            this.buildQuizData(result[0].quizli);
+            this.error = undefined;
+        })
+        .catch(error => {
+            this.error = error;
+            this.quizData = undefined;
+        })
+    }
+
+    buildQuizData(data) {
+        for(let quizLineItem of data) {
+            this.quizData.push(this.buildQuizQuestion(quizLineItem));
+        }
+    }
+
+    buildQuizQuestion(lineItem) {
+        let newQuestion = {
+            question: lineItem.question,
+            correctAnswer: lineItem.correctAnswer
+        }
+        newQuestion.answers = [];
+        for(let qa of lineItem.quizAnswer) {
+            newQuestion.answers.push({
+                label: qa.answerText,
+                value: qa.Id
+            });
+        }
+        
+        return newQuestion;
+    }
+
+    buildQuizAnswer() {
+        
     }
 }
