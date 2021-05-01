@@ -1,3 +1,8 @@
 <template>
-    <c-quiz-page all-quiz-data={quizData}></c-quiz-page>
+    <div if:false={attemptQuiz}>
+        <lightning-button variant="brand" label="Enter Quiz" onclick={handleEnter}></lightning-button>
+    </div>
+    <div if:true={attemptQuiz}>
+        <c-quiz-page all-quiz-data={quizData}></c-quiz-page>
+    </div>
 </template>

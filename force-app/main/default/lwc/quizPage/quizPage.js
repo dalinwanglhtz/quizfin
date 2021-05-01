@@ -33,7 +33,7 @@ export default class QuizPage extends LightningElement {
     }
 
     nextHandler() {
-        if(this.quizData.length > this.endIndex) {
+        if(this.allQuizes.length > this.endIndex) {
             this.quizData = this.allQuizes.slice(++this.startIndex, ++this.endIndex);
         }
     }

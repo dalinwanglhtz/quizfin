@@ -22,6 +22,7 @@ public class QuizFin {
                 for(Quiz_Answer__c qa : qas) {
                     QuizAnswer qAnswer = new QuizAnswer();
                     qAnswer.answerText = qa.Answer_Text__c;
+                    qAnswer.Id = qa.Id;
                     quiza.add(qAnswer);
                 }
                 qLineItem.quizAnswer = quiza;
@@ -57,5 +58,7 @@ public class QuizFin {
     public class QuizAnswer {
         @AuraEnabled
         public String answerText {get;set;}
+        @AuraEnabled
+        public ID Id {get;set;}
     }
 }
