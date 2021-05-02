@@ -14,10 +14,12 @@ export default class QuizView extends LightningElement {
 
         let categoryOptions = [];
         for(let aQuiz of this.resultData) {
-            categoryOptions.push({
-                label: aQuiz.category,
-                value: aQuiz.category
-            });
+            if(categoryOptions.map(e => e.value).indexOf(aQuiz.category) < 0) { // check for unique category
+                categoryOptions.push({
+                    label: aQuiz.category,
+                    value: aQuiz.category
+                });
+            }
         }
         return categoryOptions;
     }
