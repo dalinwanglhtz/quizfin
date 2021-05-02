@@ -33,20 +33,20 @@ export default class QuizView extends LightningElement {
     buildQuizQuestion(lineItem) {
         let newQuestion = {
             question: lineItem.question,
-            correctAnswer: lineItem.correctAnswer
+            correctAnswer: lineItem.correctAnswer,
+            answers: this.buildQuizAnswer(lineItem.quizAnswer)
         }
-        newQuestion.answers = [];
-        for(let qa of lineItem.quizAnswer) {
-            newQuestion.answers.push({
+        return newQuestion;
+    }
+
+    buildQuizAnswer(quizAnswers) {
+        let answers = [];
+        for(let qa of quizAnswers) {
+            answers.push({
                 label: qa.answerText,
                 value: qa.Id
             });
         }
-        
-        return newQuestion;
-    }
-
-    buildQuizAnswer() {
-        
+        return answers;
     }
 }
