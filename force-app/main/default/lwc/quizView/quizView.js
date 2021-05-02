@@ -4,9 +4,39 @@ import getQuizData from '@salesforce/apex/QuizFin.getQuizData';
 export default class QuizView extends LightningElement {
     @track quizData = [];
     @track error;
+    @track selectableQuizs = [];
+    resultData;
     attemptQuiz;
 
-    handleEnter() {
+
+    get options() {
+        if(!this.resultData) return;
+
+        let categoryOptions = [];
+        for(let aQuiz of this.resultData) {
+            categoryOptions.push({
+                label: aQuiz.category,
+                value: aQuiz.category
+            });
+        }
+        return categoryOptions;
+    }
+
+    handleCategorySelect(event) {
+        let filteredQuizs = this.resultData.filter(q => q.category == event.target.value);
+        let sQuizs = [];
+        for(let fq of filteredQuizs) {
+            sQuizs.push({
+                label: fq.name,
+                value: fq.Id
+            });
+        }
+        this.selectableQuizs = [...sQuizs];
+    }
+
+    handleQuizSelect(event) {
+        let thisQuiz = this.resultData.filter(q => q.Id == event.target.value);
+        this.buildQuizData(thisQuiz[0].quizli);
         if(this.quizData.length > 0) {
             this.attemptQuiz = true;
         }
@@ -15,12 +45,12 @@ export default class QuizView extends LightningElement {
     connectedCallback() {
         getQuizData()
         .then(result => {
-            this.buildQuizData(result[0].quizli);
+            this.resultData = [...result];
             this.error = undefined;
         })
         .catch(error => {
             this.error = error;
-            this.quizData = undefined;
+            this.resultData = undefined;
         })
     }
 

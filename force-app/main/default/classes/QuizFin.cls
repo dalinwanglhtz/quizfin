@@ -7,6 +7,7 @@ public class QuizFin {
         List<QuizWrapper> qWrapper = new List<QuizWrapper>();
         for(Quiz__c q : quizs) {
             QuizWrapper qw = new QuizWrapper();
+            qw.Id = q.Id;
             qw.name = q.Name;
             qw.category = q.Quiz_Category__c;
             qw.published = q.Published__c;
@@ -36,6 +37,8 @@ public class QuizFin {
     }
     
     public class QuizWrapper {
+        @AuraEnabled
+        public ID Id {get;set;}
         @AuraEnabled
         public String name {get;set;}
         @AuraEnabled

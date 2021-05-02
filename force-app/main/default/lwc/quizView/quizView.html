@@ -1,6 +1,22 @@
 <template>
     <div if:false={attemptQuiz}>
-        <lightning-button variant="brand" label="Enter Quiz" onclick={handleEnter}></lightning-button>
+        <!-- <lightning-button variant="brand" label="Enter Quiz" onclick={handleEnter}></lightning-button> -->
+        <lightning-combobox
+            name="category"
+            label="Select a quiz category"
+            placeholder="Select Category"
+            value={value}
+            options={options}
+            onchange={handleCategorySelect} >
+        </lightning-combobox>
+        <lightning-combobox
+            name="quiz"
+            label="Select a quiz to attend"
+            placeholder="Select Quiz"
+            value={value}
+            options={selectableQuizs}
+            onchange={handleQuizSelect} >
+        </lightning-combobox>
     </div>
     <div if:true={attemptQuiz}>
         <c-quiz-page all-quiz-data={quizData}></c-quiz-page>
