@@ -1,7 +1,7 @@
 public class QuizFin {
 	@AuraEnabled(cacheable=true)
     public static List<QuizWrapper> getQuizData() {
-        List<QuizWrapper> qWrapper = new List<QuizWrapper>();
+        List<QuizWrapper> qWrappers = new List<QuizWrapper>();
         for(Quiz__c q : [SELECT Id, Name, Quiz_Category__c, Published__c,
                         (SELECT Id, Question__c, Correct_Answer__c FROM Quiz_Line_Items__r)
                         FROM Quiz__c
@@ -12,10 +12,10 @@ public class QuizFin {
             qw.category = q.Quiz_Category__c;
             qw.published = q.Published__c;
             qw.quizli = getQuizLineItems(q.Quiz_Line_Items__r);
-            qWrapper.add(qw);
+            qWrappers.add(qw);
         }
 
-        return qWrapper;
+        return qWrappers;
     }
 
     private static List<QuizLineItem> getQuizLineItems(List<Quiz_Line_Item__c> quizlis) {

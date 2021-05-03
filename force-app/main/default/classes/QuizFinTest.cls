@@ -73,7 +73,6 @@ public class QuizFinTest {
         Test.stopTest();
 
         for(QuizFin.QuizWrapper quiz: resultQuizzes) {
-            System.debug('Quiz name: '+quiz.name);
             System.assertEquals('Test Quiz A', quiz.name, 'Quiz name should exist');
             for(QuizFin.QuizLineItem qli : quiz.quizli) {
 				List<QuizFin.QuizAnswer> qas = qli.quizAnswer;
