@@ -11,30 +11,38 @@ public class QuizFin {
             qw.name = q.Name;
             qw.category = q.Quiz_Category__c;
             qw.published = q.Published__c;
-            
-            List<QuizLineItem> quizli = new List<QuizLineItem>();
-            for(Quiz_Line_Item__c qli : q.Quiz_Line_Items__r) {
-                QuizLineItem qLineItem = new QuizLineItem();
-                qLineItem.question = qli.Question__c;
-                qLineItem.correctAnswer = qli.Correct_Answer__c;
-
-                List<QuizAnswer> quiza = new List<QuizAnswer>();
-                for(Quiz_Answer__c qa : [SELECT Id, Answer_Text__c 
-                                        FROM Quiz_Answer__c
-                                        WHERE Quiz_Line_Item__c = :qli.Id]) {
-                    QuizAnswer qAnswer = new QuizAnswer();
-                    qAnswer.answerText = qa.Answer_Text__c;
-                    qAnswer.Id = qa.Id;
-                    quiza.add(qAnswer);
-                }
-                qLineItem.quizAnswer = quiza;
-                quizli.add(qLineItem);
-            }
-            qw.quizli = quizli;
+            qw.quizli = getQuizLineItems(q.Quiz_Line_Items__r);
             qWrapper.add(qw);
         }
 
         return qWrapper;
+    }
+
+    private static List<QuizLineItem> getQuizLineItems(List<Quiz_Line_Item__c> quizlis) {
+        List<QuizLineItem> quizLineItems = new List<QuizLineItem>();
+        for(Quiz_Line_Item__c qli: quizlis) {
+            QuizLineItem qLineItem = new QuizLineItem();
+            qLineItem.question = qli.Question__c;
+            qLineItem.correctAnswer = qli.Correct_Answer__c;
+            qLineItem.quizAnswer = getQuizAnswers(qli.Id);
+            quizLineItems.add(qLineItem);
+        }
+
+        return quizLineItems;
+    }
+
+    private static List<QuizAnswer> getQuizAnswers(ID quizLineItemId) {
+        List<QuizAnswer> quizAnswers = new List<QuizAnswer>();
+        for(Quiz_Answer__c qa: [SELECT Id, Answer_Text__c 
+                                FROM Quiz_Answer__c
+                                WHERE Quiz_Line_Item__c = :quizLineItemId]) {
+            QuizAnswer qAnswer = new QuizAnswer();
+            qAnswer.answerText = qa.Answer_Text__c;
+            qAnswer.Id = qa.Id;
+            quizAnswers.add(qAnswer);
+        }
+
+        return quizAnswers;
     }
     
     public class QuizWrapper {
