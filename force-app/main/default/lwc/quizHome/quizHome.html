@@ -1,6 +1,14 @@
 <template>
     <div class="slds-align_absolute-center">
-        <a href="#" class="slds-button slds-button--brand btn-lg">Manage My Quiz</a>
-        <a href="/attend-quiz/" class="slds-button slds-button--brand btn-lg">Attend Quiz</a>
-    </div>
+        <button class="slds-button slds-button--brand slds-button_stretch btn-lg" 
+                onclick={navigateToAttendQuiz}
+                name="manage-my-quiz">
+                Manage My Quiz
+        </button>
+        <button class="slds-button slds-button--brand slds-button_stretch btn-lg" 
+                onclick={navigateToAttendQuiz}
+                name="attend-quiz">
+                Attend Quiz
+        </button>
+   </div>
 </template>
