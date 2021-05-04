@@ -7,6 +7,7 @@ export default class QuizView extends LightningElement {
     @track selectableQuizs = [];
     resultData;
     attemptQuiz;
+    disabled = true;
 
 
     get options() {
@@ -34,6 +35,7 @@ export default class QuizView extends LightningElement {
             });
         }
         this.selectableQuizs = [...sQuizs];
+        if(this.selectableQuizs.length > 0) this.disabled = false;
     }
 
     handleQuizSelect(event) {
