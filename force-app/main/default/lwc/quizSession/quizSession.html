@@ -1,0 +1,6 @@
+<template>
+    <template if:false={loggedOut}>
+        Hello {userId}!
+        <lightning-button label="Logout" onclick={handleLogout}></lightning-button>
+    </template>
+</template>
