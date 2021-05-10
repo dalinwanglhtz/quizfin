@@ -1,6 +1,12 @@
 <template>
     <template if:false={loggedOut}>
-        Hello {currUserName}!
-        <lightning-button label="Logout" onclick={handleLogout}></lightning-button>
+        <lightning-layout>
+            <lightning-layout-item>
+                <div class="custom-box slds-box slds-p-around-x_small slds-text-align_center">Hello {currUserName}!</div>
+            </lightning-layout-item>
+            <lightning-layout-item alignment-bump="left">
+                <lightning-button label="Logout" onclick={handleLogout}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
     </template>
 </template>
