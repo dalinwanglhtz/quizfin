@@ -1,15 +1,23 @@
-import { LightningElement } from 'lwc';
-import Id from '@salesforce/user/Id';
+import { LightningElement, wire, track } from 'lwc';
+import USER_ID from '@salesforce/user/Id';
+import { getRecord } from 'lightning/uiRecordApi';
+import NAME_FIELD from '@salesforce/schema/User.Name';
 
 export default class QuizSession extends LightningElement {
-    loggedOut;
-    userId = Id;
+    @track error;
+    @track currUserName;
+    loggedOut = true;
 
-    connectedCallback() {
-        if(this.userId != null) {
+    @wire(getRecord, {
+        recordId: USER_ID,
+        fields: [NAME_FIELD]
+    })
+    currUser({err, data}) {
+        if(err) {
+            this.error = err;
+        } else if (data) {
+            this.currUserName = data.fields.Name.value;
             this.loggedOut = false;
-        } else {
-            this.loggedOut = true;
         }
     }
 
