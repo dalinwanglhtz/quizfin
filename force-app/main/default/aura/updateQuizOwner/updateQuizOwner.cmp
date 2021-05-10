@@ -1,0 +1,3 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <c:quizUpdateOwner recordId="{!v.recId}"></c:quizUpdateOwner>
+</aura:component>	
