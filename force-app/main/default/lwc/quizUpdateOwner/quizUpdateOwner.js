@@ -38,6 +38,6 @@ export default class QuizUpdateOwner extends LightningElement {
 
     connectedCallback() {
         this.updateQuiz();
-        this.dispatchEvent(new CustomEvent('closeQuickAction'));
+        this.dispatchEvent(new CustomEvent('closequickaction'));
     }
 }
