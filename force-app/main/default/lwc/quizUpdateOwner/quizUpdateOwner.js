@@ -20,7 +20,7 @@ export default class QuizUpdateOwner extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',
-                        message: 'Quiz owner updated',
+                        message: 'Quiz released!',
                         variant: 'success'
                     })
                 );
