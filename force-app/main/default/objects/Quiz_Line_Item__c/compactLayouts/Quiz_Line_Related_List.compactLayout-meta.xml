@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quiz_Line_Related_List</fullName>
+    <fields>Question__c</fields>
+    <fields>Correct_Answer__c</fields>
+    <label>Quiz Line Related List</label>
+</CompactLayout>
