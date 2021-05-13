@@ -38,8 +38,5 @@ export default class QuizUpdateOwner extends LightningElement {
     connectedCallback() {
         this.updateQuiz();
         this.dispatchEvent(new CustomEvent('closequickaction'));
-        setTimeout(() => {
-            location.reload();
-        }, 500);
     }
 }

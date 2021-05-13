@@ -4,6 +4,14 @@
   "id" : "c3a72c27-a731-43f6-8c0c-b9e0c4999f38",
   "label" : "Record Detail",
   "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizSession",
+      "id" : "9a92ca3a-f70c-4081-8454-d688ea326eac",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "cc3e230f-a6b4-459b-84da-80a24706d551",
     "regionName" : "header",
     "type" : "region"

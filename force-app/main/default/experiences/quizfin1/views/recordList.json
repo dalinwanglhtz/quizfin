@@ -1,9 +1,17 @@
 {
   "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
-  "componentName" : "siteforce:sldsOneColLayout",
+  "componentName" : "siteforce:sldsTwoCol48Layout",
   "id" : "925a6d9c-26da-43c8-8b24-8e8dafb5050e",
   "label" : "Record List",
   "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizSession",
+      "id" : "341bdb36-df9f-4658-a06b-649cf8821cde",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "fd313ed2-d43e-4490-a739-620abb2ada1d",
     "regionName" : "header",
     "type" : "region"
@@ -11,10 +19,10 @@
     "components" : [ {
       "componentAttributes" : {
         "enableInlineEdit" : true,
-        "filterName" : "00B2w00000F0N7gEAF",
+        "filterName" : "00B2w00000FxFkTEAV",
         "layout" : "FULL",
         "pageSize" : 25,
-        "scope" : "Account",
+        "scope" : "Quiz__c",
         "showActionBar" : true,
         "showChartsPanel" : true,
         "showDisplay" : "showall",
@@ -37,6 +45,18 @@
   }, {
     "id" : "076a1d58-ffea-4796-afbd-e8583e066b21",
     "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizMenu",
+      "id" : "5c12471a-daf1-4f17-8a30-0b2970d3be09",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "842373ea-f700-48ad-9b12-ddb953fefb07",
+    "regionName" : "sidebar",
     "type" : "region"
   } ],
   "themeLayoutType" : "Inner",
