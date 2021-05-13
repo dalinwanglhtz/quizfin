@@ -8,7 +8,7 @@ export default class QuizUpdateOwner extends LightningElement {
     @track error;
     @api recordId;
     @api defaultUserId;
-    @api toRelease;
+    @api quickAction;
     quizRecord;
     createdBy;
 
@@ -46,8 +46,8 @@ export default class QuizUpdateOwner extends LightningElement {
 
         console.log('Created by: ', this.createdBy);
 
-        if(this.toRelease == 'true') {
-            console.log('to release: ', this.toRelease);
+        if(this.quickAction == 'release') {
+            console.log('to release: ', this.quickAction);
         }
 
         updateQuizOwner({
