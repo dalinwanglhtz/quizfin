@@ -1,0 +1,10 @@
+{
+  "activeViewId" : "7ce26a65-4530-4c74-98fc-4aa889911997",
+  "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
+  "id" : "986797b9-40ab-471d-8fc1-625885f2e9e2",
+  "label" : "Attend Quiz",
+  "pageAccess" : "Public",
+  "routeType" : "custom-attend-quiz",
+  "type" : "route",
+  "urlPrefix" : "attend-quiz"
+}

@@ -1,0 +1,95 @@
+{
+  "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
+  "componentName" : "siteforce:sldsTwoCol48Layout",
+  "id" : "b272f4b0-dce9-4d70-ad68-477859fd2a4a",
+  "label" : "Manage My Quiz",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizSession",
+      "id" : "c7f0af2a-1133-4f07-8542-5c25eea67166",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "bannerText" : "",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Manage My Quiz",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "dd2e2ce5-ede4-437e-ae1e-d5735d95e625",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a12f0450-700f-457f-b01b-f45850f11920",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizMenu",
+      "id" : "1c1e1ec3-f560-4ad3-839a-79c04d251735",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e5cb4a79-05b1-45ae-be25-798e427c2048",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "00B2w00000FxFkTEAV",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "Quiz__c",
+        "showActionBar" : true,
+        "showChartsPanel" : true,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "d1d4ef11-0d80-41b8-b7ce-dcc08bb8cf2e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f44c46dc-2826-4b11-95fc-e5f0c57ea726",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "fc8bf1f2-8526-4d33-b9ca-ef9be04147c6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Manage My Quiz"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8ed5a73a-ff19-4012-90dc-b169809b4cf8",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "af1e4aef-a901-49aa-8515-bbdd5eb64d42",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-manage-my-quiz"
+}

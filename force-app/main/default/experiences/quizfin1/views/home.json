@@ -1,0 +1,68 @@
+{
+  "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "8e4b19a2-1f1d-4bc0-9f1d-ee708d2fba3e",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizSession",
+      "id" : "27c1bbd5-6c81-4d3e-96a9-e999ceabbc40",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "bannerText" : "This is where you shine!!",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Welcome to QuizFin",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "54a9f22e-4558-4ef9-be2a-46a0f70571dd",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8dcb7664-8fcc-41ee-90de-6fc4d2cda1e1",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizHome",
+      "id" : "7d22c8c6-0934-47db-a7a7-41880ace2d04",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8594f7a1-066a-436f-ba83-3b476a568792",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "181753cc-bfd7-471e-b3e3-74b313e9f6f1",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "4979b511-82f5-4797-8abd-ba168d4564fa",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8b7cd59c-72ce-4f29-bcc0-603e0595bb5d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

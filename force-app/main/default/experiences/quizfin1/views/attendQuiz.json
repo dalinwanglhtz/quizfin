@@ -1,0 +1,80 @@
+{
+  "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "7ce26a65-4530-4c74-98fc-4aa889911997",
+  "label" : "Attend Quiz",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizSession",
+      "id" : "223ce794-4325-4bbd-bf71-641ba7332178",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "bannerText" : "",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Attend Quiz",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "d84d1498-ca5d-4a91-bd61-95f574c6c209",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "eba8ac8a-2da6-4b42-ab73-555085729f75",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "28d83c21-9796-4a73-a3bc-c874d56543a7",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizView",
+      "id" : "995de717-99d7-4c98-a5fe-62f8d18c8611",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8829a562-8dc2-48b5-84d2-fd2a818d9bc7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizMenu",
+      "id" : "75843ed2-1f0b-4fe8-a819-0607dcf349ae",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4b0717c6-9567-40c0-b7e1-7cf1d0bfed6d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Attend Quiz"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "80ac6a56-8b83-47e3-a944-e33777bfd66b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3f3a8bed-5e82-49a5-a75d-a41f671ddd2f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-attend-quiz"
+}

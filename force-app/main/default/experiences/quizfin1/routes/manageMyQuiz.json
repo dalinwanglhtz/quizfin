@@ -1,0 +1,10 @@
+{
+  "activeViewId" : "b272f4b0-dce9-4d70-ad68-477859fd2a4a",
+  "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
+  "id" : "9fa8f31b-54ab-4fba-b4ab-82bd7c593bc4",
+  "label" : "Manage My Quiz",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-manage-my-quiz",
+  "type" : "route",
+  "urlPrefix" : "manage-my-quiz"
+}
