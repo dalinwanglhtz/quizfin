@@ -1,13 +1,54 @@
-import { LightningElement, track, api } from 'lwc';
+import { LightningElement, track, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import updateQuizOwner from '@salesforce/apex/QuizUpdateOwnerController.updateQuizOwner';
+import { getRecord } from 'lightning/uiRecordApi';
+import CREATED_BY_ID_FIELD from '@salesforce/schema/Quiz__c.CreatedById';
 
 export default class QuizUpdateOwner extends LightningElement {
     @track error;
     @api recordId;
-    defaultUserId = '0052w000006t99qAAA'; // Dale Wang the default owner user
+    @api defaultUserId;
+    @api toRelease;
+    quizRecord;
+    createdBy;
+
+    @wire(getRecord, {
+        recordId: '$recordId',
+        fields: [CREATED_BY_ID_FIELD]
+    })
+    getQuizRecord({
+        error,
+        data
+    }) {
+        if(data) {
+            console.log('data: ', data);
+            this.quizRecord = data;
+            this.createdBy = this.quizRecord.fields.CreatedById.value;
+            this.updateQuiz();
+        } else if (error) {
+            let message = 'Unknown error';
+            if (Array.isArray(error.body)) {
+                message = error.body.map(e => e.message).join(', ');
+            } else if (typeof error.body.message === 'string') {
+                message = error.body.message;
+            }
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error loading quiz',
+                    message,
+                    variant: 'error',
+                }),
+            );
+        }
+    }
 
     updateQuiz() {
+
+        console.log('Created by: ', this.createdBy);
+
+        if(this.toRelease == 'true') {
+            console.log('to release: ', this.toRelease);
+        }
 
         updateQuizOwner({
             quizRecordId: this.recordId,
@@ -30,13 +71,14 @@ export default class QuizUpdateOwner extends LightningElement {
                     })
                 );
             });
+        this.dispatchEvent(new CustomEvent('closequickaction'));
     }
 
     // Update quiz with new owner
     // dispatch toast event to enclosing Aura component to close modal
     // refresh page after a delay to display new owner, else it will override the toast message
-    connectedCallback() {
-        this.updateQuiz();
-        this.dispatchEvent(new CustomEvent('closequickaction'));
-    }
+    // connectedCallback() {
+    //     this.updateQuiz();
+    //     this.dispatchEvent(new CustomEvent('closequickaction'));
+    // }
 }
