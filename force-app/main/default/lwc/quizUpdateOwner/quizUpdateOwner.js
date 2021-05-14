@@ -46,8 +46,15 @@ export default class QuizUpdateOwner extends LightningElement {
 
         console.log('Created by: ', this.createdBy);
 
-        if(this.quickAction == 'release') {
-            console.log('to release: ', this.quickAction);
+        if(this.quickAction == 'author' && this.createdBy != this.defaultUserId) {
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error authoring quiz',
+                    message: 'You are not the creator of this quiz! Therefore you cannot author it.',
+                    variant: 'error',
+                }),
+            );
+            return;
         }
 
         updateQuizOwner({

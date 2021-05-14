@@ -4,4 +4,4 @@
         quickAction="release"
         recordId="{!v.recordId}" 
         onclosequickaction="{!c.closeAction}"></c:quizUpdateOwner>
-</aura:component>	
+</aura:component>
