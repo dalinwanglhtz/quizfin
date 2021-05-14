@@ -25,6 +25,7 @@ export default class QuizUpdateOwner extends LightningElement {
             this.quizRecord = data;
             this.createdBy = this.quizRecord.fields.CreatedById.value;
             this.updateQuiz();
+            this.dispatchEvent(new CustomEvent('closequickaction'));
         } else if (error) {
             let message = 'Unknown error';
             if (Array.isArray(error.body)) {
@@ -43,8 +44,6 @@ export default class QuizUpdateOwner extends LightningElement {
     }
 
     updateQuiz() {
-
-        console.log('Created by: ', this.createdBy);
 
         if(this.quickAction == 'author' && this.createdBy != this.defaultUserId) {
             this.dispatchEvent(
@@ -78,14 +77,6 @@ export default class QuizUpdateOwner extends LightningElement {
                     })
                 );
             });
-        this.dispatchEvent(new CustomEvent('closequickaction'));
     }
 
-    // Update quiz with new owner
-    // dispatch toast event to enclosing Aura component to close modal
-    // refresh page after a delay to display new owner, else it will override the toast message
-    // connectedCallback() {
-    //     this.updateQuiz();
-    //     this.dispatchEvent(new CustomEvent('closequickaction'));
-    // }
 }
