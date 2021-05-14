@@ -21,7 +21,6 @@ export default class QuizUpdateOwner extends LightningElement {
         data
     }) {
         if(data) {
-            console.log('data: ', data);
             this.quizRecord = data;
             this.createdBy = this.quizRecord.fields.CreatedById.value;
             this.updateQuiz();

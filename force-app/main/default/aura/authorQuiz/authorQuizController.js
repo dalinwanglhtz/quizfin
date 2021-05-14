@@ -1,7 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-        var userId = $A.get( "$SObjectType.CurrentUser.Id" );
-        component.set("v.userId", userId);
+        component.set("v.userId", $A.get( "$SObjectType.CurrentUser.Id" ));
     },
 
     closeAction : function(component, event, helper) {
