@@ -60,4 +60,15 @@ public class QuizUpdateOwnerControllerTest {
         	System.assertEquals(adminUser.Id, newQuizA.OwnerId, 'Quiz owner should be the default owner user');
         }
     }
+    
+    @isTest static void should_get_default_owner_user() { 
+        UserRole userRole = [SELECT Id, Name FROM UserRole WHERE Name = 'QuizFin Manager'];
+        User adminUser = [Select Id, UserRoleId From User Where Profile.Name='System Administrator' AND UserRoleId = :userRole.Id Limit 1];
+        
+		Test.startTest();
+        ID receivedId = QuizUpdateOwnerController.getDefaultOwnerUser();
+        Test.stopTest();
+        
+        System.assertEquals(adminUser.Id, receivedId, 'QuizFin Manager with System Admin Profile should be returned');
+    }
 }

@@ -1,6 +1,7 @@
 import { LightningElement, track, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import updateQuizOwner from '@salesforce/apex/QuizUpdateOwnerController.updateQuizOwner';
+import getDefaultOwnerUser from '@salesforce/apex/QuizUpdateOwnerController.getDefaultOwnerUser';
 import { getRecord } from 'lightning/uiRecordApi';
 import CREATED_BY_ID_FIELD from '@salesforce/schema/Quiz__c.CreatedById';
 
@@ -44,6 +45,8 @@ export default class QuizUpdateOwner extends LightningElement {
 
     updateQuiz() {
 
+        console.log('Default user: ', this.defaultUserId);
+
         if(this.quickAction == 'author' && this.createdBy != this.defaultUserId) {
             this.dispatchEvent(
                 new ShowToastEvent({
@@ -55,27 +58,59 @@ export default class QuizUpdateOwner extends LightningElement {
             return;
         }
 
-        updateQuizOwner({
-            quizRecordId: this.recordId,
-            newOwnerId: this.defaultUserId
-        }).then(() => {
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: 'Success',
-                        message: 'Quiz released!',
-                        variant: 'success'
+        if(this.quickAction == 'release') {
+            getDefaultOwnerUser()
+            .then(data => {
+                console.log('returned data: ', data);
+                this.defaultUserId = data;
+                updateQuizOwner({
+                    quizRecordId: this.recordId,
+                    newOwnerId: this.defaultUserId
+                }).then(() => {
+                        this.dispatchEvent(
+                            new ShowToastEvent({
+                                title: 'Success',
+                                message: 'Quiz released!',
+                                variant: 'success'
+                            })
+                        );
                     })
-                );
+                    .catch(error => {
+                        this.dispatchEvent(
+                            new ShowToastEvent({
+                                title: 'Error updating record',
+                                message: error.body.message,
+                                variant: 'error'
+                            })
+                        );
+                    });
             })
             .catch(error => {
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: 'Error updating record',
-                        message: error.body.message,
-                        variant: 'error'
-                    })
-                );
+                console.log('Error getting default user id.');
             });
+        } else {
+            updateQuizOwner({
+                quizRecordId: this.recordId,
+                newOwnerId: this.defaultUserId
+            }).then(() => {
+                    this.dispatchEvent(
+                        new ShowToastEvent({
+                            title: 'Success',
+                            message: 'Quiz released!',
+                            variant: 'success'
+                        })
+                    );
+                })
+                .catch(error => {
+                    this.dispatchEvent(
+                        new ShowToastEvent({
+                            title: 'Error updating record',
+                            message: error.body.message,
+                            variant: 'error'
+                        })
+                    );
+                });
+        }
     }
 
 }
