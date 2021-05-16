@@ -33,13 +33,7 @@ export default class QuizUpdateOwner extends LightningElement {
             } else if (typeof error.body.message === 'string') {
                 message = error.body.message;
             }
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error loading quiz',
-                    message,
-                    variant: 'error',
-                }),
-            );
+            this.showErrorToast('Error loading quiz', message);
         }
     }
 
@@ -63,54 +57,42 @@ export default class QuizUpdateOwner extends LightningElement {
             .then(data => {
                 console.log('returned data: ', data);
                 this.defaultUserId = data;
-                updateQuizOwner({
-                    quizRecordId: this.recordId,
-                    newOwnerId: this.defaultUserId
-                }).then(() => {
-                        this.dispatchEvent(
-                            new ShowToastEvent({
-                                title: 'Success',
-                                message: 'Quiz released!',
-                                variant: 'success'
-                            })
-                        );
-                    })
-                    .catch(error => {
-                        this.dispatchEvent(
-                            new ShowToastEvent({
-                                title: 'Error updating record',
-                                message: error.body.message,
-                                variant: 'error'
-                            })
-                        );
-                    });
+                this.changeOwner();
             })
             .catch(error => {
                 console.log('Error getting default user id.');
             });
         } else {
-            updateQuizOwner({
-                quizRecordId: this.recordId,
-                newOwnerId: this.defaultUserId
-            }).then(() => {
-                    this.dispatchEvent(
-                        new ShowToastEvent({
-                            title: 'Success',
-                            message: 'Quiz released!',
-                            variant: 'success'
-                        })
-                    );
-                })
-                .catch(error => {
-                    this.dispatchEvent(
-                        new ShowToastEvent({
-                            title: 'Error updating record',
-                            message: error.body.message,
-                            variant: 'error'
-                        })
-                    );
-                });
+            this.changeOwner();
         }
+    }
+
+    changeOwner() {
+        updateQuizOwner({
+            quizRecordId: this.recordId,
+            newOwnerId: this.defaultUserId
+        }).then(() => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Success',
+                        message: 'Quiz released!',
+                        variant: 'success'
+                    })
+                );
+            })
+            .catch(error => {
+                this.showErrorToast('Error updating record', error.body.message);
+            });
+    }
+
+    showErrorToast(title, message) {
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: title,
+                message: message,
+                variant: 'error'
+            })
+        );
     }
 
 }
