@@ -6,6 +6,13 @@
   "regions" : [ {
     "components" : [ {
       "componentAttributes" : { },
+      "componentName" : "c:quizDecor",
+      "id" : "7f9699a9-6a04-46c0-bf8d-df9284ea441f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
       "componentName" : "c:quizSession",
       "id" : "27c1bbd5-6c81-4d3e-96a9-e999ceabbc40",
       "renderPriority" : "NEUTRAL",
