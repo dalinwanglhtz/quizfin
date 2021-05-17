@@ -6,8 +6,8 @@
             action.setCallback(this, function(response) {
                 let state = response.getState();
                 if (state === "SUCCESS") {
-                    console.log('returned value: ', response.getReturnValue());
                     component.set("v.defaultUser", response.getReturnValue());
+                    component.find('quizUpdateOwner').updateQuiz();
                     resolve('Resolved');
                 } else {
                     console.log("Failed with state: ", state);
@@ -21,7 +21,6 @@
     },
 
     closeAction : function(component, event, helper) {
-        console.log('get default user: ', component.get("v.defaultUser"));
         var navEvent = $A.get("e.force:navigateToList");
         navEvent.setParams({
             "listViewName": "Recent",

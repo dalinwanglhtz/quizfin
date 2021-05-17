@@ -1,7 +1,6 @@
 import { LightningElement, track, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import updateQuizOwner from '@salesforce/apex/QuizUpdateOwnerController.updateQuizOwner';
-import getDefaultOwnerUser from '@salesforce/apex/QuizUpdateOwnerController.getDefaultOwnerUser';
 import { getRecord } from 'lightning/uiRecordApi';
 import CREATED_BY_ID_FIELD from '@salesforce/schema/Quiz__c.CreatedById';
 
@@ -37,32 +36,14 @@ export default class QuizUpdateOwner extends LightningElement {
         }
     }
 
-    updateQuiz() {
-
-        console.log('Default user: ', this.defaultUserId);
+    @api updateQuiz() {
 
         if(this.quickAction == 'author' && this.createdBy != this.defaultUserId) {
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error authoring quiz',
-                    message: 'You are not the creator of this quiz! Therefore you cannot author it.',
-                    variant: 'error',
-                }),
-            );
+            this.showErrorToast('Error authoring quiz', 'You are not the creator of this quiz! Therefore you cannot author it.');
             return;
         }
 
-        if(this.quickAction == 'release') {
-            getDefaultOwnerUser()
-            .then(data => {
-                console.log('returned data: ', data);
-                this.defaultUserId = data;
-                this.changeOwner();
-            })
-            .catch(error => {
-                console.log('Error getting default user id.');
-            });
-        } else {
+        if(this.defaultUserId != null) {
             this.changeOwner();
         }
     }

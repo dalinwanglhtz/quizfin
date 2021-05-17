@@ -1,10 +1,9 @@
 <aura:component controller="QuizUpdateOwnerController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
-    <!-- <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
     <aura:attribute name="defaultUser" type="ID"/>
     <c:quizUpdateOwner 
-        defaultUserId="{!v.defaultUser}"  -->
-    <c:quizUpdateOwner 
-        defaultUserId="" 
+        aura:id="quizUpdateOwner"
+        defaultUserId="{!v.defaultUser}" 
         quickAction="release"
         recordId="{!v.recordId}" 
         onclosequickaction="{!c.closeAction}"></c:quizUpdateOwner>
