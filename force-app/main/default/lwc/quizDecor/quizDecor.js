@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
-import QUIZFIN_LOGO from '@salesforce/resourceUrl/quizfin_logo';
+import QUIZ_DECOR from '@salesforce/resourceUrl/quiz_decor';
 
 export default class QuizDecor extends LightningElement {
-    quizFinLogo = QUIZFIN_LOGO;
+    quizFinLogo = QUIZ_DECOR+'/quizfin_logo.png';
 }
