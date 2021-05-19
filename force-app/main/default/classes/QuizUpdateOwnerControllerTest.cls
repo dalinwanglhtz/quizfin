@@ -1,13 +1,8 @@
 @isTest
 public class QuizUpdateOwnerControllerTest {
 
-    @isTest static void should_update_quiz_owner() { 
-        // Create new portal user using admin access
-        UserRole userrole = [Select Id, DeveloperName From UserRole Where DeveloperName = 'CEO' Limit 1];
+    @testSetup static void setup() {
         User adminUser = [Select Id, UserRoleId From User Where Profile.Name='System Administrator' Limit 1];
-        
-        adminUser.UserRoleId = userRole.Id;
-        update adminUser;
         
         System.runAs(adminUser){
 			System.debug('Admin User: ' + UserInfo.getUserName());
@@ -36,6 +31,14 @@ public class QuizUpdateOwnerControllerTest {
         
             insert user;
         }
+    }
+    
+    @isTest static void should_update_quiz_owner() { 
+        UserRole userRole = [Select Id, DeveloperName From UserRole Where DeveloperName = 'CEO' Limit 1];
+        User adminUser = [Select Id, UserRoleId From User Where Profile.Name='System Administrator' Limit 1];
+        
+        adminUser.UserRoleId = userRole.Id;
+        update adminUser;
         
         // Now run as portal user
         User u = [SELECT Id FROM User WHERE Username = 'test@uniquedomain.com'];
@@ -70,5 +73,50 @@ public class QuizUpdateOwnerControllerTest {
         Test.stopTest();
         
         System.assertEquals(adminUser.Id, receivedId, 'QuizFin Manager with System Admin Profile should be returned');
+    }
+    
+    @isTest static void should_throw_error_during_quiz_validation() {
+        // Create new portal user using admin access
+        UserRole userrole = [Select Id, DeveloperName From UserRole Where DeveloperName = 'CEO' Limit 1];
+        User adminUser = [Select Id, UserRoleId From User Where Profile.Name='System Administrator' Limit 1];
+        
+        // Now run as portal user
+        User u = [SELECT Id FROM User WHERE Username = 'test@uniquedomain.com'];
+
+        System.runAs(u) {
+            // The following code runs as user 'u' 
+            System.debug('Current User: ' + UserInfo.getUserName());
+            System.debug('Current Profile: ' + UserInfo.getProfileId());
+            
+            Quiz__c testQuizA = new Quiz__c();
+            testQuizA.OwnerId = u.Id;
+            testQuizA.Name = 'Test Quiz A';
+        	testQuizA.Quiz_Category__c = 'General';
+        	testQuizA.Published__c = true;
+        	insert testQuizA;
+            
+            Quiz_Line_Item__c qli = new Quiz_Line_Item__c();
+            qli.Question__c = 'Test Question 1';
+            qli.Quiz__c = testQuizA.Id;
+            insert qli;
+            
+            Quiz_Answer__c qa = new Quiz_Answer__c();
+            qa.Answer_Text__c = 'Test Answer';
+            qa.Quiz_Line_Item__c = qli.Id;
+            insert qa;
+            
+            Test.startTest();
+            try {
+            	QuizUpdateOwnerController.updateQuizOwner(testQuizA.Id, adminUser.Id);    
+            } catch(Exception e) {
+                System.assertEquals('Please specify correct answer for all your quiz line items.', 
+                                    e.getMessage(), 
+                                    'Quiz should throw message');
+                return;
+            }
+        	Test.stopTest();
+            
+            System.assert(false, 'Error was not thrown!');
+        }
     }
 }
