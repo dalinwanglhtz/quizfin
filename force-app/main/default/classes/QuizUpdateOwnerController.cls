@@ -24,5 +24,5 @@ public without sharing class QuizUpdateOwnerController {
         }
     }
     
-    public class ValidationException extends Exception {}
+    private class ValidationException extends Exception {}
 }
