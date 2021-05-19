@@ -15,14 +15,13 @@ public without sharing class QuizUpdateOwnerController {
         return user.Id;
     }
     
-    private static Boolean checkQuizLineItemsHaveCorrectAnswer(ID quizRecId) {
+    private static void checkQuizLineItemsHaveCorrectAnswer(ID quizRecId) {
         List<Quiz_Line_Item__c> qLineItems = [SELECT Id, Correct_Answer__c FROM Quiz_Line_Item__c WHERE Quiz__c = :quizRecId];
         for(Quiz_Line_Item__c qLineItem : qLineItems) {
             if(qLineItem.Correct_Answer__c == null) {
                 throw new ValidationException('Please specify correct answer for all your quiz line items.');
             }
         }
-        return true;
     }
     
     public class ValidationException extends Exception {}
