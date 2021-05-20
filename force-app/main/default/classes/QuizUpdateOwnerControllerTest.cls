@@ -119,4 +119,149 @@ public class QuizUpdateOwnerControllerTest {
             System.assert(false, 'Error was not thrown!');
         }
     }
+    
+    @isTest static void should_throw_error_when_checking_line_items() {
+        // Create new portal user using admin access
+        UserRole userrole = [Select Id, DeveloperName From UserRole Where DeveloperName = 'CEO' Limit 1];
+        User adminUser = [Select Id, UserRoleId From User Where Profile.Name='System Administrator' Limit 1];
+        
+        // Now run as portal user
+        User u = [SELECT Id FROM User WHERE Username = 'test@uniquedomain.com'];
+
+        System.runAs(u) {
+            // The following code runs as user 'u' 
+            System.debug('Current User: ' + UserInfo.getUserName());
+            System.debug('Current Profile: ' + UserInfo.getProfileId());
+            
+            Quiz__c testQuizA = new Quiz__c();
+            testQuizA.OwnerId = u.Id;
+            testQuizA.Name = 'Test Quiz A';
+        	testQuizA.Quiz_Category__c = 'General';
+        	testQuizA.Published__c = true;
+        	insert testQuizA;
+            
+            Quiz_Line_Item__c qli = new Quiz_Line_Item__c();
+            qli.Question__c = 'Test Question 1';
+            qli.Quiz__c = testQuizA.Id;
+            insert qli;
+            
+            Quiz_Answer__c qa1 = new Quiz_Answer__c();
+            qa1.Answer_Text__c = 'Test Answer 1';
+            qa1.Quiz_Line_Item__c = qli.Id;
+            insert qa1;
+            
+			Quiz_Answer__c qa2 = new Quiz_Answer__c();
+            qa2.Answer_Text__c = 'Test Answer 2';
+            qa2.Quiz_Line_Item__c = qli.Id;
+            insert qa2;
+
+			qli.Correct_Answer__c = qa2.Id;
+			update qli;
+            
+            Quiz_Line_Item__c qli1 = new Quiz_Line_Item__c();
+            qli1.Question__c = 'Test Question 2';
+            qli1.Quiz__c = testQuizA.Id;
+            insert qli1;
+            
+            Quiz_Answer__c qa3 = new Quiz_Answer__c();
+            qa3.Answer_Text__c = 'Test Answer 3';
+            qa3.Quiz_Line_Item__c = qli1.Id;
+            insert qa3;
+            
+			Quiz_Answer__c qa4 = new Quiz_Answer__c();
+            qa4.Answer_Text__c = 'Test Answer 4';
+            qa4.Quiz_Line_Item__c = qli1.Id;
+            insert qa4;
+
+			qli1.Correct_Answer__c = qa4.Id;
+			update qli1;
+            
+            Test.startTest();
+            QuizUpdateOwnerController.MAX_QUIZLINEITEMS = 1;
+            try {
+            	QuizUpdateOwnerController.updateQuizOwner(testQuizA.Id, adminUser.Id);    
+            } catch(Exception e) {
+                System.assertEquals('You cannot create more than '+QuizUpdateOwnerController.MAX_QUIZLINEITEMS+' Quiz Line Items.', 
+                                    e.getMessage(), 
+                                    'Quiz should throw message');
+                return;
+            }
+        	Test.stopTest();
+            
+            System.assert(false, 'Error was not thrown!');
+        }
+    }
+    
+    @isTest static void should_throw_error_when_checking_answers() {
+        // Create new portal user using admin access
+        UserRole userrole = [Select Id, DeveloperName From UserRole Where DeveloperName = 'CEO' Limit 1];
+        User adminUser = [Select Id, UserRoleId From User Where Profile.Name='System Administrator' Limit 1];
+        
+        // Now run as portal user
+        User u = [SELECT Id FROM User WHERE Username = 'test@uniquedomain.com'];
+
+        System.runAs(u) {
+            // The following code runs as user 'u' 
+            System.debug('Current User: ' + UserInfo.getUserName());
+            System.debug('Current Profile: ' + UserInfo.getProfileId());
+            
+            Quiz__c testQuizA = new Quiz__c();
+            testQuizA.OwnerId = u.Id;
+            testQuizA.Name = 'Test Quiz A';
+        	testQuizA.Quiz_Category__c = 'General';
+        	testQuizA.Published__c = true;
+        	insert testQuizA;
+            
+            Quiz_Line_Item__c qli = new Quiz_Line_Item__c();
+            qli.Question__c = 'Test Question 1';
+            qli.Quiz__c = testQuizA.Id;
+            insert qli;
+            
+            Quiz_Answer__c qa1 = new Quiz_Answer__c();
+            qa1.Answer_Text__c = 'Test Answer 1';
+            qa1.Quiz_Line_Item__c = qli.Id;
+            insert qa1;
+            
+			Quiz_Answer__c qa2 = new Quiz_Answer__c();
+            qa2.Answer_Text__c = 'Test Answer 2';
+            qa2.Quiz_Line_Item__c = qli.Id;
+            insert qa2;
+
+			qli.Correct_Answer__c = qa2.Id;
+			update qli;
+            
+            Quiz_Line_Item__c qli1 = new Quiz_Line_Item__c();
+            qli1.Question__c = 'Test Question 2';
+            qli1.Quiz__c = testQuizA.Id;
+            insert qli1;
+            
+            Quiz_Answer__c qa3 = new Quiz_Answer__c();
+            qa3.Answer_Text__c = 'Test Answer 3';
+            qa3.Quiz_Line_Item__c = qli1.Id;
+            insert qa3;
+            
+			Quiz_Answer__c qa4 = new Quiz_Answer__c();
+            qa4.Answer_Text__c = 'Test Answer 4';
+            qa4.Quiz_Line_Item__c = qli1.Id;
+            insert qa4;
+
+			qli1.Correct_Answer__c = qa4.Id;
+			update qli1;
+            
+            Test.startTest();
+            QuizUpdateOwnerController.MAX_QUIZANSWERS = 1;
+            try {
+            	QuizUpdateOwnerController.updateQuizOwner(testQuizA.Id, adminUser.Id);    
+            } catch(Exception e) {
+                System.assertEquals('You cannot create more than '+QuizUpdateOwnerController.MAX_QUIZANSWERS
+                                    +' quiz answers for line item: '+qli.Question__c, 
+                                    e.getMessage(), 
+                                    'Quiz should throw message');
+                return;
+            }
+        	Test.stopTest();
+            
+            System.assert(false, 'Error was not thrown!');
+        }
+    }
 }
