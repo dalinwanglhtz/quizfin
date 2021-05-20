@@ -1,0 +1,67 @@
+{
+  "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
+  "componentName" : "siteforce:dynamicLayout",
+  "id" : "ea31eef1-a433-4702-98d8-0e417d1157ce",
+  "label" : "Help",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "f1142638-c9ea-4bf1-ac7f-e4fbc3397b93",
+          "columns" : [ {
+            "UUID" : "11cb854e-694b-4eeb-998f-3cb478f1bb49",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "f1142638-c9ea-4bf1-ac7f-e4fbc3397b93",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:quizHelp",
+          "id" : "6c270595-478d-4d34-8465-fd9a1d2b74ea",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "11cb854e-694b-4eeb-998f-3cb478f1bb49",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2696a232-3d86-41a7-9c11-1d95adf6f5d5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Help"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "92751a0d-2ce6-473b-a8f6-4fdfc7fda7a3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8df57eb8-53c2-4db0-bd48-bd44f6d2ae25",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-help"
+}
