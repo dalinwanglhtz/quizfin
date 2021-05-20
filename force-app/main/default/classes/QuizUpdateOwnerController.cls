@@ -4,9 +4,14 @@ public without sharing class QuizUpdateOwnerController {
     
 	@AuraEnabled(cacheable=false)
     public static void updateQuizOwner(ID quizRecordId, ID newOwnerId) {
-        checkQuizLineItemsHaveCorrectAnswer(quizRecordId);
-        checkQuizNumberOfLineItemsAndAnswers(quizRecordId);
-        Quiz__c q = [SELECT Id, OwnerId FROM Quiz__c WHERE Id = :quizRecordId];
+        Quiz__c q = [SELECT Id, OwnerId, CreatedById FROM Quiz__c WHERE Id = :quizRecordId];
+        
+        // Only check when release quiz
+        if(q.CreatedById != newOwnerId) {
+        	checkQuizLineItemsHaveCorrectAnswer(quizRecordId);
+        	checkQuizNumberOfLineItemsAndAnswers(quizRecordId);            
+        }
+        
         q.OwnerId = newOwnerId;
         update q;
     }
