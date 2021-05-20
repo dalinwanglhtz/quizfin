@@ -2,26 +2,38 @@
     <div class="slds-m-around_medium">
         <img src={quizHelpImg1}>
     </div>
-    <div class="slds-text-title_caps">
-        Welcome to QuizFin:
-    </div>
+    <h3 class="slds-text-title_caps">
+        Welcome to QuizFin
+    </h3>
+    <br>
     <div class="slds-text-body_medium">
-        When you hit the home page above, you have two choices: 
-        <ul>
+        In the home page, you are presented with two choices: 
+        <ul class="slds-list_dotted">
             <li>
-                Attend Quizzes
+                Attend Quiz
             </li>
             <li>
-                Manage you own quizzes
+                Manage My Quiz
             </li>
         </ul>
     </div>
     <br>
     <div class="slds-text-longform">
         <h3 class="slds-text-heading_small">Attend Quiz</h3>
-        <ol>
-            <li>Click on Attend Quiz button</li>
-            <li><img src={quizHelpImg2}></li>
+        <ol class="slds-has-dividers_top-space">
+            <li class="slds-item">
+                Click on Attend Quiz button
+                <img src={quizHelpImg2}>
+            </li>
+            <li class="slds-item">First select a category, then select the quiz to attend</li>
+            <li class="slds-item">
+                When all selections are made, you are prompted with the quiz to start
+                <img src={quizHelpImg3}>
+            </li>
+            <li class="slds-item">
+                You can move back and forth between quiz cards. When confident, submit by clicking on “Finish” button to view result
+                <img src={quizHelpImg4}>
+            </li>
         </ol>
     </div>
 </template>
