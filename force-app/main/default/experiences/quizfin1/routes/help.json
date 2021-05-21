@@ -3,7 +3,7 @@
   "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
   "id" : "ad822b92-5c62-4b07-963a-01ad4ac52c61",
   "label" : "Help",
-  "pageAccess" : "UseParent",
+  "pageAccess" : "Public",
   "routeType" : "custom-help",
   "type" : "route",
   "urlPrefix" : "help"
