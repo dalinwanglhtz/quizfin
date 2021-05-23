@@ -1,6 +1,6 @@
 {
   "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
-  "componentName" : "siteforce:sldsTwoCol48Layout",
+  "componentName" : "siteforce:sldsOneColLayout",
   "id" : "b272f4b0-dce9-4d70-ad68-477859fd2a4a",
   "label" : "Manage My Quiz",
   "regions" : [ {
@@ -8,6 +8,13 @@
       "componentAttributes" : { },
       "componentName" : "c:quizDecor",
       "id" : "3d9df46a-1124-4045-b890-0e7f7e1c7de6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:quizMenu",
+      "id" : "1c1e1ec3-f560-4ad3-839a-79c04d251735",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -38,14 +45,6 @@
     "regionName" : "header",
     "type" : "region"
   }, {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:quizMenu",
-      "id" : "1c1e1ec3-f560-4ad3-839a-79c04d251735",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "e5cb4a79-05b1-45ae-be25-798e427c2048",
     "regionName" : "sidebar",
     "type" : "region"
@@ -94,6 +93,10 @@
     } ],
     "id" : "af1e4aef-a901-49aa-8515-bbdd5eb64d42",
     "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "e188ec76-f026-4b96-a6e6-a66a2c710e59",
+    "regionName" : "featured",
     "type" : "region"
   } ],
   "themeLayoutType" : "Inner",

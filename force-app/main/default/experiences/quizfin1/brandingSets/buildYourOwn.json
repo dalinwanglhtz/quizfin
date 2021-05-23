@@ -13,7 +13,7 @@
     "HeaderFonts" : "Montserrat",
     "LinkColor" : "#2574A9",
     "LoginBackgroundColor" : "#F4F4F4",
-    "LoginBackgroundImage" : "../../../../sfsites/picasso/core/external/salesforceIdentity/images/background.jpg?v=1",
+    "LoginBackgroundImage" : "/file-asset/backgroundtree?v=1",
     "OverlayTextColor" : "#FFFFFF",
     "PrimaryFont" : "Lato",
     "TextColor" : "#333",

@@ -1,6 +1,6 @@
 {
   "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
-  "componentName" : "siteforce:sldsTwoCol48Layout",
+  "componentName" : "siteforce:sldsOneColLayout",
   "id" : "c3a72c27-a731-43f6-8c0c-b9e0c4999f38",
   "label" : "Record Detail",
   "regions" : [ {
@@ -13,8 +13,30 @@
       "type" : "component"
     }, {
       "componentAttributes" : { },
+      "componentName" : "c:quizMenu",
+      "id" : "7aaa90b5-be2a-44e2-8e80-795237595b2e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
       "componentName" : "c:quizSession",
       "id" : "9a92ca3a-f70c-4081-8454-d688ea326eac",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "bannerText" : "",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Edit Quiz",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "27afa650-0f03-447b-94e2-2c5e46f475c9",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -73,14 +95,6 @@
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   }, {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:quizMenu",
-      "id" : "7aaa90b5-be2a-44e2-8e80-795237595b2e",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "190c7c9d-b0ec-497c-b130-62b95e29c95b",
     "regionName" : "sidebar",
     "type" : "region"

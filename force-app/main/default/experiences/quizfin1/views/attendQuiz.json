@@ -13,6 +13,13 @@
       "type" : "component"
     }, {
       "componentAttributes" : { },
+      "componentName" : "c:quizMenu",
+      "id" : "75843ed2-1f0b-4fe8-a819-0607dcf349ae",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
       "componentName" : "c:quizSession",
       "id" : "223ce794-4325-4bbd-bf71-641ba7332178",
       "renderPriority" : "NEUTRAL",
@@ -54,14 +61,6 @@
     "regionName" : "content",
     "type" : "region"
   }, {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:quizMenu",
-      "id" : "75843ed2-1f0b-4fe8-a819-0607dcf349ae",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "4b0717c6-9567-40c0-b7e1-7cf1d0bfed6d",
     "regionName" : "footer",
     "type" : "region"

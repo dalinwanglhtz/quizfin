@@ -18,7 +18,12 @@
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
-    }, {
+    } ],
+    "id" : "8dcb7664-8fcc-41ee-90de-6fc4d2cda1e1",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
       "componentAttributes" : {
         "bannerText" : "This is where you shine!!",
         "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
@@ -33,12 +38,7 @@
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
-    } ],
-    "id" : "8dcb7664-8fcc-41ee-90de-6fc4d2cda1e1",
-    "regionName" : "header",
-    "type" : "region"
-  }, {
-    "components" : [ {
+    }, {
       "componentAttributes" : { },
       "componentName" : "c:quizHome",
       "id" : "7d22c8c6-0934-47db-a7a7-41880ace2d04",
