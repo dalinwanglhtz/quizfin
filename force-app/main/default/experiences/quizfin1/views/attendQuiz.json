@@ -51,6 +51,13 @@
   }, {
     "components" : [ {
       "componentAttributes" : { },
+      "componentName" : "c:quizPlayer",
+      "id" : "e0a14086-0b93-4e5d-ac9e-3b8f616949c7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
       "componentName" : "c:quizView",
       "id" : "995de717-99d7-4c98-a5fe-62f8d18c8611",
       "renderPriority" : "NEUTRAL",
