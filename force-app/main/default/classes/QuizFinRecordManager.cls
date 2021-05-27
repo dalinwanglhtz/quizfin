@@ -1,4 +1,4 @@
-public with sharing class QuizFinRecordManager {
+public without sharing class QuizFinRecordManager {
 	@AuraEnabled(cacheable=false)
     public static Contact createContact(String lastname) {
         Contact newCont = new Contact(LastName=lastname);

@@ -37,7 +37,6 @@ export default class QuizPlayer extends LightningElement {
                     variant: 'success',
                     })
                 );
-                console.log('Contact record: ', result);
                 this.contactRecord = result;
                 this.contactExist = true;
                 this.exposeContactId(result.Id);
