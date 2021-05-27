@@ -31,6 +31,6 @@ public without sharing class QuizFinRecordManager {
     }
     
     private static List<Contact> getContactRecord(String lastname) {
-        return [SELECT Id, Name, Overall_Quiz_Score__c FROM Contact WHERE LastName = :lastname];
+        return [SELECT Id, Name, Overall_Quiz_Score__c FROM Contact WHERE LastName = :lastname AND FirstName = null];
     }
 }
