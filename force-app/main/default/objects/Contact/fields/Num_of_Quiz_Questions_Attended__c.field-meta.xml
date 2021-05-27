@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Num_of_Quiz_Questions_Attended__c</fullName>
+    <externalId>false</externalId>
+    <label>Num of Quiz Questions Attended</label>
+    <summarizedField>Quiz_Attendee__c.Number_of_Questions__c</summarizedField>
+    <summaryForeignKey>Quiz_Attendee__c.Player__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <type>Summary</type>
+</CustomField>

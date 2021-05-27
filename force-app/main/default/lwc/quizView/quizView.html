@@ -1,6 +1,6 @@
 <template>
     <div>
-        <c-quiz-player></c-quiz-player>
+        <c-quiz-player onconevent={handleContactEvent}></c-quiz-player>
     </div>
     <div if:false={attemptQuiz}>
         <!-- <lightning-button variant="brand" label="Enter Quiz" onclick={handleEnter}></lightning-button> -->
@@ -23,6 +23,9 @@
         </lightning-combobox>
     </div>
     <div if:true={attemptQuiz}>
-        <c-quiz-page all-quiz-data={quizData}></c-quiz-page>
+        <c-quiz-page 
+            all-quiz-data={quizData} 
+            contact-id={contactId} 
+            attendee-quiz-id={attendeeQuizId}></c-quiz-page>
     </div>
 </template>

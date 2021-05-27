@@ -1,20 +1,23 @@
 import { LightningElement } from 'lwc';
 import createContactRecord from '@salesforce/apex/QuizFinRecordManager.createContact';
-import isContactExist from '@salesforce/apex/QuizFinRecordManager.IsContactExist';
+import getContact from '@salesforce/apex/QuizFinRecordManager.getContact';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class QuizPlayer extends LightningElement {
     inputValue;
-    name;
+    contactExist;
+    contactRecord;
     error;
 
     handleClick(event) {
         this.inputValue = this.template.querySelector('lightning-input').value;
-        console.log('Valid input: ', this.inputValue);
-        isContactExist({lastname: this.inputValue})
+
+        getContact({lastname: this.inputValue})
             .then(result => {
                 if(result) {
-                    this.name = this.inputValue;
+                    this.contactRecord = result;
+                    this.contactExist = true;
+                    this.exposeContactId(result.Id);
                 } else {
                     this.createContact();
                 }
@@ -30,11 +33,14 @@ export default class QuizPlayer extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({
                     title: 'Success',
-                    message: 'Contact Created',
+                    message: 'Player Created',
                     variant: 'success',
                     })
                 );
-                this.name = this.inputValue;
+                console.log('Contact record: ', result);
+                this.contactRecord = result;
+                this.contactExist = true;
+                this.exposeContactId(result.Id);
             })
             .catch(error => {
                 this.dispatchEvent(
@@ -45,5 +51,10 @@ export default class QuizPlayer extends LightningElement {
                     })
                 );
             });
+    }
+
+    exposeContactId(contactId) {
+        const conEvent = new CustomEvent('conevent', {detail: contactId});
+        this.dispatchEvent(conEvent);
     }
 }

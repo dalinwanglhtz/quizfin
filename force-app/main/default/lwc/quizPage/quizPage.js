@@ -1,10 +1,13 @@
 import { LightningElement, api } from 'lwc';
+import createAttendeeRecord from '@salesforce/apex/QuizFinRecordManager.createAttendee';
 // import * as Data from './quizPage_data';
 
 export default class QuizPage extends LightningElement {
     // this variable allQuizData only gets populated when the whole page is loaded, so use connectedCallback
     // instead of using it during variable initialistaion as you see right below
     @api allQuizData; 
+    @api contactId;
+    @api attendeeQuizId;
     value = '';
     startIndex = 0;
     endIndex = 1;
@@ -60,11 +63,27 @@ export default class QuizPage extends LightningElement {
 
     handleFinish() {
         if(this.finishButtonLabel === 'Finish') {
+            this.createAttendee();
             this.showResult = true;
             this.finishButtonLabel = 'Restart';
         } else {
             this.reloadPage();
         }
+    }
+
+    createAttendee() {
+        createAttendeeRecord({
+            correctResponses: this.results,
+            numQuestions: this.totalQues,
+            contactId: this.contactId,
+            quizId: this.attendeeQuizId
+        })
+        .then(result => {
+            console.log('Successfully created attendee record');
+        })
+        .catch(err => {
+            console.log('failed: ', err);
+        })
     }
 
     calcResults() {

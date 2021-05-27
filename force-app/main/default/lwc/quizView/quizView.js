@@ -8,7 +8,13 @@ export default class QuizView extends LightningElement {
     resultData;
     attemptQuiz;
     disabled = true;
+    contactId;
+    attendeeQuizId;
 
+
+    handleContactEvent(event) {
+        this.contactId = event.detail;
+    }
 
     get options() {
         if(!this.resultData) return;
@@ -42,6 +48,7 @@ export default class QuizView extends LightningElement {
         let thisQuiz = this.resultData.filter(q => q.Id == event.target.value);
         this.buildQuizData(thisQuiz[0].quizli);
         if(this.quizData.length > 0) {
+            this.attendeeQuizId = event.target.value;
             this.attemptQuiz = true;
         }
     }
