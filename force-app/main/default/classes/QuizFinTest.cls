@@ -66,10 +66,11 @@ public class QuizFinTest {
     }
     
     @isTest static void should_contain_quiz_data() {
+        String lastname = 'Test1';
         List<QuizFin.QuizWrapper> resultQuizzes;
         
         Test.startTest();
-        resultQuizzes = QuizFin.getQuizData();
+        resultQuizzes = QuizFin.getQuizData(lastname);
         Test.stopTest();
 
         for(QuizFin.QuizWrapper quiz: resultQuizzes) {
@@ -80,5 +81,47 @@ public class QuizFinTest {
                 System.assertNotEquals(null, qli.correctAnswer, 'Correct Answer should not be null');
         	}
         }
+    }
+    
+    @isTest static void should_get_list_of_attended_quizzes() {
+        String lastname = 'Test1';
+        Contact con1 = new Contact(LastName=lastname);
+        insert con1;
+        
+        Quiz__c testQuizB = new Quiz__c();
+        testQuizB.Name = 'Test Quiz B';
+        testQuizB.Quiz_Category__c = 'General';
+        testQuizB.Published__c = true;
+        insert testQuizB;
+        
+        Quiz__c testQuizC = new Quiz__c();
+        testQuizC.Name = 'Test Quiz C';
+        testQuizC.Quiz_Category__c = 'General';
+        testQuizC.Published__c = true;
+        insert testQuizC;
+        
+        Quiz_Attendee__c qaB = new Quiz_Attendee__c(
+        	Player__c = con1.Id,
+            Quiz__c = testQuizB.Id,
+            Correct_Responses__c = 1,
+            Number_of_Questions__c = 2
+        );
+        insert qaB;
+        
+        Quiz_Attendee__c qaC = new Quiz_Attendee__c(
+        	Player__c = con1.Id,
+            Quiz__c = testQuizC.Id,
+            Correct_Responses__c = 1,
+            Number_of_Questions__c = 2
+        );
+        insert qaC;
+        
+        Set<ID> quizIds;
+        Test.startTest();
+        quizIds = QuizFin.attendedQuizzes(lastname);
+        Test.stopTest();
+        
+        System.assertEquals(2, quizIds.size(), 'should have two quizzes attended');
+        
     }
 }

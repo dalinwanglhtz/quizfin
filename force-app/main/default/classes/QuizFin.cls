@@ -1,11 +1,13 @@
-public class QuizFin {
+public without sharing class QuizFin {
 	@AuraEnabled(cacheable=true)
-    public static List<QuizWrapper> getQuizData() {
+    public static List<QuizWrapper> getQuizData(String lastname) {
         List<QuizWrapper> qWrappers = new List<QuizWrapper>();
+        Set<ID> quizIds = attendedQuizzes(lastname);
+        ID siteDefaultUser = QuizUpdateOwnerController.getDefaultOwnerUser();
         for(Quiz__c q : [SELECT Id, Name, Quiz_Category__c, Published__c,
                         (SELECT Id, Question__c, Correct_Answer__c FROM Quiz_Line_Items__r)
                         FROM Quiz__c
-                        WHERE Published__c = true]) {
+                        WHERE Published__c = true AND OwnerId = :siteDefaultUser AND Id NOT IN :quizIds]) {
             QuizWrapper qw = new QuizWrapper();
             qw.Id = q.Id;
             qw.name = q.Name;
@@ -43,6 +45,21 @@ public class QuizFin {
         }
 
         return quizAnswers;
+    }
+    
+    @TestVisible
+    private static Set<ID> attendedQuizzes(String lastname) {
+        Set<ID> quizIds = new Set<ID>();
+        List<Contact> cons = [SELECT Id FROM Contact WHERE LastName = :lastname AND FirstName = null];
+        if(!cons.isEmpty()) {
+            Contact con = cons[0];
+        	List<Quiz_Attendee__c> qas = [SELECT Id, Quiz__c FROM Quiz_Attendee__c WHERE Player__c = :con.Id]; 
+            for(Quiz_Attendee__c qa : qas) {
+                quizIds.add(qa.Quiz__c);
+            }
+        }
+        
+        return quizIds;
     }
     
     public class QuizWrapper {

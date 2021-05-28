@@ -9,11 +9,23 @@ export default class QuizView extends LightningElement {
     attemptQuiz;
     disabled = true;
     contactId;
+    contactName;
     attendeeQuizId;
 
 
     handleContactEvent(event) {
-        this.contactId = event.detail;
+        this.contactId = event.detail.Id;
+        this.contactName = event.detail.Name;
+
+        getQuizData({lastname: this.contactName})
+        .then(result => {
+            this.resultData = [...result];
+            this.error = undefined;
+        })
+        .catch(error => {
+            this.error = error;
+            this.resultData = undefined;
+        })
     }
 
     get options() {
@@ -54,15 +66,7 @@ export default class QuizView extends LightningElement {
     }
 
     connectedCallback() {
-        getQuizData()
-        .then(result => {
-            this.resultData = [...result];
-            this.error = undefined;
-        })
-        .catch(error => {
-            this.error = error;
-            this.resultData = undefined;
-        })
+
     }
 
     buildQuizData(data) {

@@ -53,7 +53,11 @@ export default class QuizPlayer extends LightningElement {
     }
 
     exposeContactId(contactId) {
-        const conEvent = new CustomEvent('conevent', {detail: contactId});
+        const contactData = {
+            Id: contactId,
+            Name: this.inputValue
+        }
+        const conEvent = new CustomEvent('conevent', {detail: contactData});
         this.dispatchEvent(conEvent);
     }
 }
