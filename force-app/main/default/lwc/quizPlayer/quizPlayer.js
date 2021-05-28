@@ -12,6 +12,8 @@ export default class QuizPlayer extends LightningElement {
     handleClick(event) {
         this.inputValue = this.template.querySelector('lightning-input').value;
 
+        if(!this.validateInput()) return;
+
         getContact({lastname: this.inputValue})
             .then(result => {
                 if(result) {
@@ -25,6 +27,22 @@ export default class QuizPlayer extends LightningElement {
             .catch(err => {
                 this.error = err;
             })
+    }
+
+    validateInput() {
+        let proceedFurther = false;
+        const inputCmp = this.template.querySelector('lightning-input');
+        if(!this.inputValue) {
+            inputCmp.setCustomValidity('Please enter a nickname.');
+            inputCmp.reportValidity();
+        } else if(/\s/.test(this.inputValue)) {
+            inputCmp.setCustomValidity('Name should not contain spaces.');
+            inputCmp.reportValidity();
+        } else {
+            proceedFurther = true;
+        }
+
+        return proceedFurther;
     }
 
     createContact() {
