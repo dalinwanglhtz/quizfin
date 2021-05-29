@@ -26,7 +26,7 @@ export default class QuizView extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Quiz pool dried!',
-                        message: 'You have completed all the quizzes. At this stage no more quiz to attend.',
+                        message: 'You have completed all quizzes. At this stage no more quiz to attend.',
                         variant: 'error'
                     })
                 )
