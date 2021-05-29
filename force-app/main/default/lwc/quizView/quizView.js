@@ -1,4 +1,5 @@
 import { LightningElement, track } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getQuizData from '@salesforce/apex/QuizFin.getQuizData';
 
 export default class QuizView extends LightningElement {
@@ -21,6 +22,15 @@ export default class QuizView extends LightningElement {
         .then(result => {
             this.resultData = [...result];
             this.error = undefined;
+            if(this.resultData.length == 0) {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Quiz pool dried!',
+                        message: 'You have completed all the quizzes. At this stage no more quiz to attend.',
+                        variant: 'error'
+                    })
+                )
+            }
         })
         .catch(error => {
             this.error = error;
