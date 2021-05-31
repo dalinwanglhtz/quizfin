@@ -5,20 +5,19 @@
     <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
     <aura:attribute name="blueBackground" type="Boolean" default="false"/> 
     <aura:attribute name="smallLogo" type="Boolean" default="false" />
-    <div>
-        <div class="searchRegion">
-            {!v.search}
+    <div class="slds-grid slds-align_absolute-center">
+        <div class="slds-col slds-size_1-of-3 slds-align-top">
+            <div class="slds-col">
+                {!v.search}
+            </div>
+            <div class="slds-col slds-grid_vertical-align-start">
+                {!v.profileMenu}
+            </div>
+            <div class="slds-col">
+                {!v.navBar}
+            </div>
         </div>
-        <div class="profileMenuRegion">
-            {!v.profileMenu}
-        </div>
-        <div class="navigation">
-            {!v.navBar}
-        </div>
-        <div class="newHeader">
-            {!v.newHeader}
-        </div>
-        <div class="mainContentArea">
+        <div class="slds-col content slds-size_2-of-3">
             {!v.body}
         </div>
     </div>
