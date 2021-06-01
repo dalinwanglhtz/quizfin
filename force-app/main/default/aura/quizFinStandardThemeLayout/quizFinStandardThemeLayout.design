@@ -1,4 +1,4 @@
-<design:component label="Small Header">
+<design:component label="QuizFin Standard">
     <design:attribute name="blueBackground" label="Blue Background"/>
     <design:attribute name="smallLogo" label="Small Logo"/>
 </design:component>
