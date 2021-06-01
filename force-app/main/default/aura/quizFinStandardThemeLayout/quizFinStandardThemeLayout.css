@@ -3,3 +3,9 @@
     z-index: 1;
     max-width: 70%;
 }
+
+.THIS .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

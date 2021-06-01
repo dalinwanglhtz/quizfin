@@ -10,8 +10,10 @@
             <div class="slds-col">
                 {!v.search}
             </div>
-            <div class="slds-col slds-grid_vertical-align-start">
-                {!v.profileMenu}
+            <div class="clearfix">
+                <div class="slds-float_left">
+                    {!v.profileMenu}
+                </div>
             </div>
             <div class="slds-col">
                 {!v.navBar}
