@@ -1,19 +1,14 @@
 <aura:component implements="forceCommunity:themeLayout" access="global" description="QuizFin Custom Theme Layout">
-    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
-    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
     <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
     <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
     <aura:attribute name="blueBackground" type="Boolean" default="false"/> 
     <aura:attribute name="smallLogo" type="Boolean" default="false" />
     <div class="slds-grid slds-align_absolute-center">
         <div class="slds-col slds-size_1-of-6 slds-align-top">
-            <div class="slds-col">
-                {!v.search}
-                <!-- {!$Resource.quiz_decor} To get background-image id in CSS -->
-            </div>
+            <!-- {!$Resource.quiz_decor} To get background-image id in CSS -->
             <div class="clearfix">
                 <div class="slds-float_left">
-                    {!v.profileMenu}
+                    {!v.newHeader}
                 </div>
             </div>
             <div class="slds-col">
