@@ -16,4 +16,5 @@ export default class QuizHelp extends LightningElement {
     quizHelpImg12 = QUIZ_DECOR + '/quiz_help_img_12.png';
     quizHelpImg13 = QUIZ_DECOR + '/quiz_help_img_13.png';
     quizHelpImg14 = QUIZ_DECOR + '/quiz_help_img_14.png';
+    quizHelpImg15 = QUIZ_DECOR + '/quiz_help_img_15.png';
 }
