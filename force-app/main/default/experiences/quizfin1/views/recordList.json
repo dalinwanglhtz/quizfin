@@ -19,13 +19,6 @@
       "renditionMap" : { },
       "type" : "component"
     }, {
-      "componentAttributes" : { },
-      "componentName" : "c:quizSession",
-      "id" : "341bdb36-df9f-4658-a06b-649cf8821cde",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
       "componentAttributes" : {
         "bannerText" : "",
         "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
@@ -80,7 +73,7 @@
     "regionName" : "sidebar",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "OpNMV7dOERov63Sw4fWWkU5sAmT4ca",
   "type" : "view",
   "viewType" : "list"
 }

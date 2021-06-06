@@ -7,21 +7,14 @@
     "components" : [ {
       "componentAttributes" : { },
       "componentName" : "c:quizDecor",
-      "id" : "9dd35b16-4884-4818-a340-9966afc80360",
+      "id" : "df2699ed-f80a-4606-aa81-4037b9850a3b",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
     }, {
       "componentAttributes" : { },
       "componentName" : "c:quizMenu",
-      "id" : "75843ed2-1f0b-4fe8-a819-0607dcf349ae",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : { },
-      "componentName" : "c:quizSession",
-      "id" : "223ce794-4325-4bbd-bf71-641ba7332178",
+      "id" : "6efa44a9-90e1-437c-a5d0-9b9008b81af5",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -51,15 +44,8 @@
   }, {
     "components" : [ {
       "componentAttributes" : { },
-      "componentName" : "c:quizPlayer",
-      "id" : "e0a14086-0b93-4e5d-ac9e-3b8f616949c7",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : { },
       "componentName" : "c:quizView",
-      "id" : "995de717-99d7-4c98-a5fe-62f8d18c8611",
+      "id" : "6cf5544f-01c0-4940-a3b9-3aba2588f863",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -87,7 +73,7 @@
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "OpNMV7dOERov63Sw4fWWkU5sAmT4ca",
   "type" : "view",
   "viewType" : "custom-attend-quiz"
 }

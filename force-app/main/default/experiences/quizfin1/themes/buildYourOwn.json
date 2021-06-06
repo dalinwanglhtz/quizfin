@@ -6,7 +6,8 @@
   "label" : "Build Your Own",
   "layouts" : {
     "Inner" : "1e8c9377-1040-4c6e-85c4-95364c97c28f",
-    "Login" : "a3d72000-4af6-4483-af0e-9f1c5d5c6e3d"
+    "Login" : "a3d72000-4af6-4483-af0e-9f1c5d5c6e3d",
+    "OpNMV7dOERov63Sw4fWWkU5sAmT4ca" : "7e956689-a0f6-4f8e-9ff0-1c09e4b3e1a8"
   },
   "type" : "theme",
   "views" : [ {
@@ -95,6 +96,87 @@
       } ],
       "id" : "a76002ba-4069-462a-9fd3-4ba7c392c3e1",
       "regionName" : "navBar",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "blueBackground" : false,
+      "smallLogo" : false
+    },
+    "componentName" : "c:quizFinStandardThemeLayout",
+    "id" : "7e956689-a0f6-4f8e-9ff0-1c09e4b3e1a8",
+    "label" : "QuizFin Standard",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "maxAutoCompleteResults" : 5,
+          "searchLabel" : "Search...",
+          "searchObjects" : [ {
+            "isPublic" : true,
+            "name" : "Account"
+          } ]
+        },
+        "componentName" : "forceCommunity:globalSearchInput",
+        "id" : "f9b8a342-84ea-48ed-856c-acbed55d2c77",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "12e7d57b-3ef1-4d02-bd49-6502760c9ef6",
+      "regionName" : "search",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "accountManagementLabel" : "Account Management",
+          "communityBuilderLabel" : "Experience Builder",
+          "communitySetupLabel" : "Salesforce Setup",
+          "contactSupportLabel" : "Contact Support",
+          "filterName" : "MyCases",
+          "homeLabel" : "Home",
+          "includeContactSupport" : false,
+          "includeMessages" : false,
+          "loginLabel" : "Login",
+          "logoutLabel" : "Logout",
+          "myAccountLabel" : "My Account",
+          "showAccountManagement" : false,
+          "showUserSettings" : false,
+          "userSettingsLabel" : "My Settings",
+          "viewProfileLabel" : "My Profile"
+        },
+        "componentName" : "selfService:userProfileMenu",
+        "id" : "aa3ab6e8-3887-4f03-8784-5f02427b421d",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "5d8cee80-7cd2-47f5-b961-bcfbe9e55d8f",
+      "regionName" : "profileMenu",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "NavigationMenuEditorRefresh" : "Quiz_Site_Navigation",
+          "hideAppLauncher" : true,
+          "hideHomeText" : true
+        },
+        "componentName" : "forceCommunity:globalNavigation",
+        "id" : "8695715f-9048-4f6c-9512-e6d5134c79aa",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "c7682629-12a1-496a-9138-11a39085fac9",
+      "regionName" : "navBar",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : { },
+        "componentName" : "c:quizSession",
+        "id" : "7b159df0-f4fb-4751-aca2-554d53e09d9c",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "6d18f670-838c-497a-99ab-13a3e340e6d8",
+      "regionName" : "newHeader",
       "type" : "region"
     } ],
     "type" : "view"

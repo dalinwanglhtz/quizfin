@@ -1,49 +1,49 @@
 {
   "appPageId" : "615b6fec-2008-4c4e-ac4a-be3e99f4f2e6",
   "componentName" : "siteforce:sldsOneColLayout",
-  "id" : "8e4b19a2-1f1d-4bc0-9f1d-ee708d2fba3e",
-  "label" : "Home",
+  "id" : "c5c44161-eafa-4786-bf28-8005fd4ade16",
+  "label" : "Test Page",
   "regions" : [ {
     "components" : [ {
       "componentAttributes" : { },
       "componentName" : "c:quizDecor",
-      "id" : "7f9699a9-6a04-46c0-bf8d-df9284ea441f",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
-    "id" : "8dcb7664-8fcc-41ee-90de-6fc4d2cda1e1",
-    "regionName" : "header",
-    "type" : "region"
-  }, {
-    "components" : [ {
-      "componentAttributes" : {
-        "bannerText" : "This is where you shine!!",
-        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
-        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
-        "pageType" : "",
-        "showSubTopics" : true,
-        "title" : "Welcome to QuizFin",
-        "uniqueNameOrId" : ""
-      },
-      "componentName" : "forceCommunity:headline",
-      "id" : "54a9f22e-4558-4ef9-be2a-46a0f70571dd",
+      "id" : "d9de42c4-8681-4fb3-8098-67f6ca5ae485",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
     }, {
-      "componentAttributes" : { },
-      "componentName" : "c:quizHome",
-      "id" : "7d22c8c6-0934-47db-a7a7-41880ace2d04",
+      "componentAttributes" : {
+        "bannerText" : "",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : true,
+        "title" : "Attend Quiz",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "e002c5ec-8f34-4595-b872-dd2a0a026ee0",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
     } ],
-    "id" : "8594f7a1-066a-436f-ba83-3b476a568792",
+    "id" : "9d51c39c-f74a-447f-b68a-9c26ce2f5f24",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizView",
+      "id" : "958e1cbc-b142-42e9-a43a-e3f9071e47f7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3f6721c0-91fb-4471-b402-f714bdb45d2d",
     "regionName" : "content",
     "type" : "region"
   }, {
-    "id" : "181753cc-bfd7-471e-b3e3-74b313e9f6f1",
+    "id" : "5b1331c1-ec34-40f9-87e0-eab3c32efeff",
     "regionName" : "footer",
     "type" : "region"
   }, {
@@ -51,18 +51,18 @@
       "componentAttributes" : {
         "description" : "",
         "metaTags" : "",
-        "title" : "Home"
+        "title" : "Test Page"
       },
       "componentName" : "forceCommunity:seoAssistant",
-      "id" : "4979b511-82f5-4797-8abd-ba168d4564fa",
+      "id" : "6a152a68-148b-4ca4-a471-a8e45d403000",
       "renditionMap" : { },
       "type" : "component"
     } ],
-    "id" : "8b7cd59c-72ce-4f29-bcc0-603e0595bb5d",
+    "id" : "3414d850-58a1-4c83-a30f-f81aa006877b",
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
   "themeLayoutType" : "OpNMV7dOERov63Sw4fWWkU5sAmT4ca",
   "type" : "view",
-  "viewType" : "home"
+  "viewType" : "custom-test-page"
 }

@@ -4,7 +4,7 @@
     <aura:attribute name="blueBackground" type="Boolean" default="false"/> 
     <aura:attribute name="smallLogo" type="Boolean" default="false" />
     <div class="slds-grid slds-align_absolute-center">
-        <div class="slds-col slds-size_1-of-6 slds-align-top">
+        <div class="slds-col slds-size_1-of-5 slds-align-top">
             <!-- {!$Resource.quiz_decor} To get background-image id in CSS -->
             <div class="clearfix">
                 <div class="slds-float_left">
@@ -15,7 +15,7 @@
                 {!v.navBar}
             </div>
         </div>
-        <div class="slds-col content slds-size_5-of-6">
+        <div class="slds-col content slds-size_4-of-5">
             {!v.body}
         </div>
     </div>
