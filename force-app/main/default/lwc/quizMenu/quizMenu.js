@@ -11,4 +11,17 @@ export default class QuizMenu extends NavigationMixin(LightningElement) {
             },
         });
     }
+
+    handleSelect(event) {
+        if(event.detail.name == 'home') {
+            this.navigateToHomePage();
+        } else {
+            this[NavigationMixin.Navigate]({
+                "type": "standard__webPage",
+                "attributes": {
+                    "url": "/"+event.detail.name
+                },
+            });
+        }
+    }
 }

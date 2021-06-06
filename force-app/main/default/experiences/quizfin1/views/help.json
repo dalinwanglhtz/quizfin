@@ -26,13 +26,6 @@
       "regions" : [ {
         "components" : [ {
           "componentAttributes" : { },
-          "componentName" : "c:quizMenu",
-          "id" : "f6b3481f-f8f9-4ecf-86c0-07be00fd852a",
-          "renderPriority" : "NEUTRAL",
-          "renditionMap" : { },
-          "type" : "component"
-        }, {
-          "componentAttributes" : { },
           "componentName" : "c:quizHelp",
           "id" : "6c270595-478d-4d34-8465-fd9a1d2b74ea",
           "renderPriority" : "NEUTRAL",

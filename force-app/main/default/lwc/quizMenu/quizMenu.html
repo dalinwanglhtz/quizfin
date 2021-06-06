@@ -1,8 +1,25 @@
 <template>
-    <div class="slds-float_right">
-        <button class="slds-button slds-button_outline-brand slds-button_stretch" 
-                onclick={navigateToHomePage}>
-                Back Home
-        </button>
+    <div style="width: 220px;">
+        <lightning-vertical-navigation onselect={handleSelect}>
+            <lightning-vertical-navigation-section>
+                <lightning-vertical-navigation-item-icon
+                    label="Home"
+                    name="home"
+                    icon-name="utility:home">
+                </lightning-vertical-navigation-item-icon>
+
+                <lightning-vertical-navigation-item-icon
+                    label="Attend Quiz"
+                    name="attend-quiz"
+                    icon-name="utility:clock">
+                </lightning-vertical-navigation-item-icon>
+    
+                <lightning-vertical-navigation-item-icon
+                    label="Manage Quiz"
+                    name="manage-my-quiz"
+                    icon-name="utility:edit">
+                </lightning-vertical-navigation-item-icon>
+            </lightning-vertical-navigation-section>
+        </lightning-vertical-navigation>
     </div>
 </template>
