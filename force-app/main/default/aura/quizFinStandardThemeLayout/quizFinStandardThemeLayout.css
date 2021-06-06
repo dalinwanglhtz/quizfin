@@ -3,6 +3,8 @@
     z-index: 1;
     max-width: 80%;
     background-image: url('/sfsites/c/resource/1622528561000/quiz_decor/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 1400px 900px;
 }
 
 .THIS .clearfix::after {
