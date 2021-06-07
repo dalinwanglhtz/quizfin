@@ -3,7 +3,7 @@
         <lightning-input label="Your nickname please: " field-level-help="Must be unique and contains no spaces e.g. blender123"></lightning-input>
         <lightning-button type="submit" label="Validate" onclick={handleClick}></lightning-button>
     </div>
-    <div if:true={contactExist}>
+    <div if:true={contactExist} class="score-font">
         Welcome {contactRecord.Name}! Your current score is {contactRecord.Overall_Quiz_Score__c}%.
     </div>
 </template>
