@@ -31,6 +31,13 @@
           "renderPriority" : "NEUTRAL",
           "renditionMap" : { },
           "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:quizFooter",
+          "id" : "66457937-4cc2-4a43-8128-cd6164873016",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
         } ],
         "id" : "11cb854e-694b-4eeb-998f-3cb478f1bb49",
         "regionLabel" : "Column 1",

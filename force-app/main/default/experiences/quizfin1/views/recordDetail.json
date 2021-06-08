@@ -55,6 +55,14 @@
     "regionName" : "content",
     "type" : "region"
   }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:quizFooter",
+      "id" : "cbe68d75-7dfe-48e7-a2ce-0f8dfa2895c1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "f8faa64f-226e-40dc-b723-e92c8ae44ddc",
     "regionName" : "footer",
     "type" : "region"
