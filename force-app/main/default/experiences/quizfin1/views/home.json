@@ -4,14 +4,6 @@
   "id" : "8e4b19a2-1f1d-4bc0-9f1d-ee708d2fba3e",
   "label" : "Home",
   "regions" : [ {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:quizDecor",
-      "id" : "7f9699a9-6a04-46c0-bf8d-df9284ea441f",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "8dcb7664-8fcc-41ee-90de-6fc4d2cda1e1",
     "regionName" : "header",
     "type" : "region"

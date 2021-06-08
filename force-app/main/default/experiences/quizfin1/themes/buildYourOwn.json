@@ -171,18 +171,29 @@
       "components" : [ {
         "componentAttributes" : { },
         "componentName" : "c:quizSession",
-        "id" : "7b159df0-f4fb-4751-aca2-554d53e09d9c",
+        "id" : "0ef40687-6841-4442-8af3-f8b4f95a16b9",
         "renditionMap" : { },
         "type" : "component"
       }, {
         "componentAttributes" : { },
         "componentName" : "c:quizMenu",
-        "id" : "b7e48114-23ed-42da-a8c5-5f7960b5ab59",
+        "id" : "54628642-41f2-4055-80db-5f22dd056943",
         "renditionMap" : { },
         "type" : "component"
       } ],
       "id" : "6d18f670-838c-497a-99ab-13a3e340e6d8",
       "regionName" : "newHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : { },
+        "componentName" : "c:quizDecor",
+        "id" : "111d0f33-730b-4f44-a921-cd854a20d3c3",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "b9d197d7-b068-4d6d-b82f-a02ea1bd94b7",
+      "regionName" : "decorationSection",
       "type" : "region"
     } ],
     "type" : "view"

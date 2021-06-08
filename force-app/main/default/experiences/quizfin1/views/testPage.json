@@ -4,41 +4,10 @@
   "id" : "c5c44161-eafa-4786-bf28-8005fd4ade16",
   "label" : "Test Page",
   "regions" : [ {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:quizDecor",
-      "id" : "d9de42c4-8681-4fb3-8098-67f6ca5ae485",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "bannerText" : "",
-        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
-        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
-        "pageType" : "",
-        "showSubTopics" : true,
-        "title" : "Attend Quiz",
-        "uniqueNameOrId" : ""
-      },
-      "componentName" : "forceCommunity:headline",
-      "id" : "e002c5ec-8f34-4595-b872-dd2a0a026ee0",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "9d51c39c-f74a-447f-b68a-9c26ce2f5f24",
     "regionName" : "header",
     "type" : "region"
   }, {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:quizView",
-      "id" : "958e1cbc-b142-42e9-a43a-e3f9071e47f7",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "3f6721c0-91fb-4471-b402-f714bdb45d2d",
     "regionName" : "content",
     "type" : "region"

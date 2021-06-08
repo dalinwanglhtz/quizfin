@@ -1,19 +1,25 @@
 <aura:component implements="forceCommunity:themeLayout" access="global" description="QuizFin Custom Theme Layout">
     <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
     <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="decorationSection" type="Aura.Component[]" required="false"/>
     <aura:attribute name="blueBackground" type="Boolean" default="false"/> 
     <aura:attribute name="smallLogo" type="Boolean" default="false" />
-    <div class="slds-grid slds-align_absolute-center">
-        <div class="slds-col slds-size_1-of-6 slds-align-top">
-            <!-- {!$Resource.quiz_decor} To get background-image id in CSS -->
-            <div class="clearfix">
-                <div class="slds-float_left">
-                    {!v.newHeader}
+    <div class="slds-grid slds-wrap slds-align_absolute-center">
+        <div class="slds-col slds-size_6-of-6">
+            {!v.decorationSection}
+        </div>
+        <div class="slds-col slds-grid">
+            <div class="slds-col slds-size_1-of-6 slds-align-top">
+                <!-- {!$Resource.quiz_decor} To get background-image id in CSS -->
+                <div class="clearfix">
+                    <div class="slds-float_left">
+                        {!v.newHeader}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="slds-col content slds-size_5-of-6">
-            {!v.body}
+            <div class="slds-col content slds-size_5-of-6">
+                {!v.body}
+            </div>
         </div>
     </div>
 </aura:component>
